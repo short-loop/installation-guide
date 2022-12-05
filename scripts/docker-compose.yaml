@@ -1,0 +1,60 @@
+version: '2'
+services:
+  shortloop-ui:
+    image: shortloop/portal:0.0.1
+    container_name: shortloop-portal
+    environment:
+      - CT_URL=${CT_URL:-shortloop-control-tower:8080}
+    ports:
+      - ${UI_PORT:-80}:5000
+  shortloop-control-tower-with-external-db:
+    profiles: ["external-db"]
+    image: shortloop/control-tower:0.0.1
+    container_name: shortloop-control-tower
+    volumes:
+      - ${LOG_DIR}:/var/logs
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PWD=${DB_PWD}
+      - LOG_DIR=${LOG_DIR}
+      - LUCENE_PATH=${LUCENE_PATH}
+    ports:
+      - ${CONTROL_TOWER_PORT:-8080}:8080
+  shortloop-control-tower-with-self-db:
+    profiles: ["self-db"]
+    image: shortloop/control-tower:0.0.1
+    container_name: shortloop-control-tower
+    volumes:
+      - ${LOG_DIR}:/var/logs
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=shortloop
+      - DB_USER=shortloop
+      - DB_PWD=shortloop
+      - LOG_DIR=${LOG_DIR}
+      - LUCENE_PATH=${LUCENE_PATH}
+    ports:
+      - ${CONTROL_TOWER_PORT:-8080}:8080
+    depends_on:
+      - postgres
+  postgres:
+    profiles: ["self-db"]
+    image: postgres:14.6
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=shortloop
+      - POSTGRES_PASSWORD=shortloop
+      - POSTGRES_DB=shortloop
+    ports:
+      - 5432:5432
+    volumes:
+      - shortloop-postgres-volume:/var/lib/postgresql/data
+    shm_size: 256MB 
+
+volumes:
+    shortloop-postgres-volume:
+        external: false
