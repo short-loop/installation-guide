@@ -7,7 +7,9 @@ ___
 * ShortLoop Control Tower
 * ShortLoop Web Portal
 * ShortLoop Database (postgres)
-* ShortLoop SDK (Supported : Java Spring-Boot)
+
+*[All 3 components can be installed via docker-compose file, as shown below.]*
+
 
 ___
 
@@ -118,15 +120,15 @@ ___
 **2. Add Maven Dependency :**
 
 ```xml
-    <dependencies>
-        ...
-        ...
-        <dependency>
-			<groupId>dev.shortloop.agent</groupId>
-			<artifactId>agent-java</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+<dependencies>
+    ...
+    ...
+    <dependency>
+        <groupId>dev.shortloop.agent</groupId>
+        <artifactId>agent-java</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 ```
 **3. update application.properties configuration file**
 
@@ -166,7 +168,7 @@ Once the installation is completed from either of the above method, ShortLoop Po
 NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
 
 
-
+___
 
 #### Coming Soon : 
  - Go Lang SDK (Mux, Gin, etc.)
