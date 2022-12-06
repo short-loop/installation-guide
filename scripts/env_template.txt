@@ -14,11 +14,6 @@ DB_PWD=<db_password>
 
 
 
-# Basic configuration for Control Tower.
-LOG_DIR=<eg: /var/log/shortloop/ct> 
-LUCENE_PATH=<eg: /var/log/shortloop/lucene>
-
-
 
 # Portal Port Customisation (default is 80)
 UI_PORT=<port> 

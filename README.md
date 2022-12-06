@@ -82,22 +82,49 @@ public class Application {
 > Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
 
 Step - 1: Download the docker compose file 
-(TODO)
-Step - 2
+
 ```bash
-docker-compose --profile self-db up
+curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+```
+
+Step - 2 : Create the .env file at the same location (using the template)
+
+```bash
+curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+```
+
+Step - 3 Initialise the application containers using the command : 
+```bash
+docker-compose --profile self-db up -d
 ```
 
 ### [Recommended Way] Installing ShortLoop (With External DB) 
 
 Step - 1 : Create a Postgres DB. (TODO)
 
-Step - 2 : Download the docker compose file. 
-(TODO)
+Step - 2: Download the docker compose file 
 
-Step - 3 : Install the application providing the DB Creds. 
 ```bash
-docker-compose --profile external-db up (TODO)
+curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+```
+
+
+Step - 3 : Create the .env file at the same location (using the template)
+
+```bash
+curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+```
+
+Step - 4 : Update the create .env file 
+
+```bash
+vim .env
+( TODO ) 
+```
+
+Step - 4 : Install the application providing the DB Creds. 
+```bash
+docker-compose --profile external-db up -d
 ```
 
 
