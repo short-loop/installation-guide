@@ -12,15 +12,15 @@ services:
     image: shortloop/control-tower:0.0.1
     container_name: shortloop-control-tower
     volumes:
-      - ${LOG_DIR}:/var/logs
+      - shortloop-logs:/var/log/shortloop
     environment:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PWD=${DB_PWD}
-      - LOG_DIR=${LOG_DIR}
-      - LUCENE_PATH=${LUCENE_PATH}
+      - LOG_DIR=/var/log/shortloop/control-tower
+      - LUCENE_PATH=/var/log/shortloop/lucene
     ports:
       - ${CONTROL_TOWER_PORT:-8080}:8080
   shortloop-control-tower-with-self-db:
@@ -28,15 +28,15 @@ services:
     image: shortloop/control-tower:0.0.1
     container_name: shortloop-control-tower
     volumes:
-      - ${LOG_DIR}:/var/logs
+      - shortloop-logs:/var/log/shortloop
     environment:
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=shortloop
       - DB_USER=shortloop
       - DB_PWD=shortloop
-      - LOG_DIR=${LOG_DIR}
-      - LUCENE_PATH=${LUCENE_PATH}
+      - LOG_DIR=/var/log/shortloop/control-tower
+      - LUCENE_PATH=/var/log/shortloop/lucene
     ports:
       - ${CONTROL_TOWER_PORT:-8080}:8080
     depends_on:
@@ -57,4 +57,6 @@ services:
 
 volumes:
     shortloop-postgres-volume:
+        external: false
+    shortloop-logs:
         external: false

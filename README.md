@@ -14,6 +14,7 @@ Create Automated API Collections, that never goes stale.
 
 ### Installing SDK in **Java Spring-Boot**  Web Application.
 > Add OSSRH (Open Source Software Repository Hosting) Repository info in your root pom file.
+
 ```xml
 <project>
     ...
@@ -35,6 +36,7 @@ Create Automated API Collections, that never goes stale.
 ```
 
 > Add Maven Dependency : 
+
 ```xml
     <dependencies>
         ...
@@ -47,18 +49,21 @@ Create Automated API Collections, that never goes stale.
 	</dependencies>
 ```
 > application.properties configuration
+
 ~~~text
     shortloop.enabled=true
     shortloop.ctUrl=<ShortLoop-Control-Tower-URL-Here>
     shortloop.applicationName=<Application_Name>
 ~~~
 > Add the following piece of code on top of you root level Application.java file 
+
 ```Java
 @ComponentScan(basePackages = {
     "dev.shortloop"
 })
 ```
 After adding the above, your Application.java file should look something like this : 
+
 ```Java
 ... 
 @ComponentScan(basePackages = {
