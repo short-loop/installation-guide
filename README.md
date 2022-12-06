@@ -16,17 +16,7 @@ ___
 
 ### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
 
-**Step - 1 : Create a Postgres database**
-
-```bash
-$ postgres=# create database shortloop;
-```
-
-**Optionally user provisioned to use that DB.**
-```bash 
-$ create user shortloop with encrypted password 'shortloop';
-$ grant all privileges on database shortloop to shortloop;
-```
+**Step - 1 : Create a Postgres database (db_name = shortloop)**
 
 
 **Step - 2 : Download the docker compose file**
