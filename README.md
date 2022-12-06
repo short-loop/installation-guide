@@ -1,8 +1,7 @@
 # ShortLoop Installation Guide
 Create Automated API Collections, that never goes stale.
 
-(Estimated Installation time : ~5 mins.) 
-
+___
 
 #### Components of ShortLoop : 
 * ShortLoop Control Tower
@@ -10,10 +9,91 @@ Create Automated API Collections, that never goes stale.
 * ShortLoop Database (postgres)
 * ShortLoop SDK (Supported : Java Spring-Boot)
 
+___
 
+
+### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
+
+**Step - 1 : Create a Postgres database & user.**
+
+```bash
+postgres=# create database shortloop;
+postgres=# create user shortloop with encrypted password 'shortloop';
+postgres=# grant all privileges on database shortloop to shortloop;
+```
+
+
+**Step - 2 : Download the docker compose file**
+
+```bash
+curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+```
+
+
+**Step - 3 : Create the .env file at the same location (using the template)**
+
+```bash
+curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+```
+
+**Step - 4 : Update the create .env file**
+Open up the `.env` file in your preferred editor and provide the configuration. 
+Eg: Post edit your `.env` file would look something like this.
+```bash
+## use this template to create your own .env file.
+
+# Required configuration. Endpoint ShortLoop control tower. Eg: http://localhost:8080
+CT_URL=http://localhost:8080
+
+# DB config (use only if you are providing external DB)
+DB_HOST=postgres_host_name
+DB_PORT=5432
+DB_NAME=shortloop
+DB_USER=shortloop
+DB_PWD=shortloop
+
+
+# Portal Port Customisation (default is 80)
+UI_PORT=<port> 
+
+# Control Tower Port Customisation (default is 8080)
+CONTROL_TOWER_PORT=<port>
+```
+
+
+**Step - 5 : Start ShortLoop.**
+```bash
+docker-compose --profile external-db up -d
+```
+
+___
+
+### Method-2 : Installing ShortLoop (Without DB)
+> Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
+
+**Step - 1: Download the docker compose file**
+
+```bash
+curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+```
+
+**Step - 2 : Create the .env file at the same location (using the template)**
+
+```bash
+curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+```
+
+**Step - 3 Start ShortLoop :**
+```bash
+docker-compose --profile self-db up -d
+```
+
+___
 
 ### Installing SDK in **Java Spring-Boot**  Web Application.
-> Add OSSRH (Open Source Software Repository Hosting) Repository info in your root pom file.
+
+**1. Add OSSRH (Open Source Software Repository Hosting) Repository info in your root pom file.** 
+
 
 ```xml
 <project>
@@ -35,7 +115,7 @@ Create Automated API Collections, that never goes stale.
 </project>
 ```
 
-> Add Maven Dependency : 
+**2. Add Maven Dependency :**
 
 ```xml
     <dependencies>
@@ -48,23 +128,24 @@ Create Automated API Collections, that never goes stale.
 		</dependency>
 	</dependencies>
 ```
-> application.properties configuration
+**3. update application.properties configuration file**
 
-~~~text
+```
     shortloop.enabled=true
-    shortloop.ctUrl=<ShortLoop-Control-Tower-URL-Here>
-    shortloop.applicationName=<Application_Name>
-~~~
-> Add the following piece of code on top of you root level Application.java file 
+    shortloop.ctUrl=http://host-name:8080       # the deployed control-tower url here.
+    shortloop.applicationName=service-name      # application name here how you want discover on portal.
+```
 
-```Java
+**4. Add the following piece of code on top of you root level Application.java file**
+
+```java
 @ComponentScan(basePackages = {
     "dev.shortloop"
 })
 ```
-After adding the above, your Application.java file should look something like this : 
+*After adding the above, your Application.java file should look something like this :*
 
-```Java
+```java
 ... 
 @ComponentScan(basePackages = {
     "dev.shortloop"
@@ -76,55 +157,6 @@ public class Application {
   }
 }
 
-```
-
-### Installing ShortLoop (Without DB)
-> Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
-
-Step - 1: Download the docker compose file 
-
-```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
-```
-
-Step - 2 : Create the .env file at the same location (using the template)
-
-```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
-```
-
-Step - 3 Initialise the application containers using the command : 
-```bash
-docker-compose --profile self-db up -d
-```
-
-### [Recommended Way] Installing ShortLoop (With External DB) 
-
-Step - 1 : Create a Postgres DB. (TODO)
-
-Step - 2: Download the docker compose file 
-
-```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
-```
-
-
-Step - 3 : Create the .env file at the same location (using the template)
-
-```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
-```
-
-Step - 4 : Update the create .env file 
-
-```bash
-vim .env
-( TODO ) 
-```
-
-Step - 4 : Install the application providing the DB Creds. 
-```bash
-docker-compose --profile external-db up -d
 ```
 
 
