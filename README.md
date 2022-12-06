@@ -2,6 +2,14 @@
 Create Automated API Collections, that never goes stale.
 
 ___
+### Preparation : 
+###### Create a fresh EC2 instance with Docker and Docker-Compose installed. You can use a publicly available ShortLoop AMI : `ami-0c8dfd6b207aecadf`
+
+**Recommended Minimum Configuration :**  
+4Gb RAM + 8 Gb Disk  
+[ In AWS : T2 Medium] 
+
+___
 
 #### Components of ShortLoop : 
 * ShortLoop Control Tower
