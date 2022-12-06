@@ -16,26 +16,30 @@ ___
 
 ### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
 
-**Step - 1 : Create a Postgres database & user.**
+**Step - 1 : Create a Postgres database**
 
 ```bash
-postgres=# create database shortloop;
-postgres=# create user shortloop with encrypted password 'shortloop';
-postgres=# grant all privileges on database shortloop to shortloop;
+$ postgres=# create database shortloop;
+```
+
+**Optionally user provisioned to use that DB.**
+```bash 
+$ create user shortloop with encrypted password 'shortloop';
+$ grant all privileges on database shortloop to shortloop;
 ```
 
 
 **Step - 2 : Download the docker compose file**
 
 ```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+$ curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
 ```
 
 
 **Step - 3 : Create the .env file at the same location (using the template)**
 
 ```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+$ curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
 ```
 
 **Step - 4 : Update the create .env file**
@@ -65,7 +69,7 @@ CONTROL_TOWER_PORT=<port>
 
 **Step - 5 : Start ShortLoop.**
 ```bash
-docker-compose --profile external-db up -d
+$ docker-compose --profile external-db up -d
 ```
 
 ___
@@ -76,18 +80,18 @@ ___
 **Step - 1: Download the docker compose file**
 
 ```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+$ curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
 ```
 
 **Step - 2 : Create the .env file at the same location (using the template)**
 
 ```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
+$ curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
 ```
 
 **Step - 3 Start ShortLoop :**
 ```bash
-docker-compose --profile self-db up -d
+$ docker-compose --profile self-db up -d
 ```
 
 ___
@@ -176,10 +180,10 @@ ___
  - AWS/GCP Traffic Mirroring
  
 
-
+---
 
 #### Support: 
-Feel free to email for a quick support, reporting bug or improvements suggestions.
+> Feel free to email for a quick support, reporting bug or improvements suggestions.
 **Sumit B Mulchandani** (sumit@shortloop.dev)
 
 
