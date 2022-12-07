@@ -45,7 +45,7 @@ ___
 **Step - 2 : Download the `docker-compose.yaml` & `.env` files required for installation.**
 
 ```bash
-curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
+sudo curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
 **Step - 3 : Add the configurations in the downloaded `.env` file.** 
@@ -68,7 +68,7 @@ DB_PWD=<db_password>
 
 **Step - 4 : Start ShortLoop.**
 ```bash
-docker-compose --profile external-db up -d
+sudo docker-compose --profile external-db up -d
 ```
 
 **Step - 5 : Provide the ShortLoop frontend portal, the configured address. **
@@ -83,12 +83,12 @@ ___
 **Step - 1 : Download the `docker-compose.yaml` & `.env` files required for installation.**
 
 ```bash
-curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
+sudo curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
 **Step - 2 Start ShortLoop :**
 ```bash
-docker-compose --profile self-db up -d
+sudo docker-compose --profile self-db up -d
 ```
 
 ___
@@ -157,6 +157,9 @@ public class Application {
 }
 
 ```
+
+After the changes, redeploy your Java Application.
+
 ___
 
 Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
