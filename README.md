@@ -3,14 +3,26 @@ Create Automated API Collections, that never goes stale.
 
 ___
 ### Preparation : 
-###### Create a fresh EC2 instance with Docker and Docker-Compose installed. 
-###### Optionally you can use our publicly available ShortLoop AMI : `ami-0c8dfd6b207aecadf`
-###### This Image contains Docker (20.10) & Docker Composed installed on Ubuntu 22-LTS
+##### 1. Create EC2 instance : 
+
+Create a fresh EC2 instance with Docker and Docker-Compose installed. 
+You can use our publicly available ShortLoop AMI : `ami-0c8dfd6b207aecadf`
+This Image contains Docker (20.10) & Docker Composed installed on Ubuntu 22-LTS.
+
 
 **Recommended Minimum Configuration :**  
 4Gb RAM + 8 Gb Disk  
 [ In AWS : T2 Medium] 
 
+##### 2. Open up the ports : 
+In the security group of your EC2 instance, edit the "Inbound Rules"
+and add the inbound for port `80` & `8080` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
+
+##### 3. Add the DNS for the ease of access for the public IP. (Optional)
+TODO :  ADD details for the ELB or Elastic IP. 
+Suggested DNS name : `shortloop.company-name.com`
+
+> NOTE : For the rest of the guide, we will assume that you have the DNS configured to access your instance. If not, just replace `shortloop.company-name.com` with the public IP of the instance. 
 ___
 
 #### Components of ShortLoop : 
@@ -29,20 +41,13 @@ ___
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
 
 
-**Step - 2 : Download the docker compose file of ShortLoop**
+**Step - 2 : Download the `docker-compose.yaml` & `.env` files required for installation.**
 
 ```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
-
-**Step - 3 : The docker-compose file expects a `.env` file when executed, so let's create the `.env` file using the command below.**
-
-```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
-```
-
-**Step - 4 : Add the configurations in the newly created `.env` file.** 
+**Step - 3 : Add the configurations in the downloaded `.env` file.** 
 Open up the `.env` file in your preferred editor and provide the DB configuration. 
 `.env` file looks something like this : 
 ```bash
@@ -60,12 +65,15 @@ DB_PWD=<db_password>
 # CONTROL_TOWER_PORT=8080
 ```
 
-
-**Step - 5 : Start ShortLoop.**
+**Step - 4 : Start ShortLoop.**
 ```bash
 docker-compose --profile external-db up -d
 ```
 
+**Step - 5 : Provide the ShortLoop frontend portal, the configured address. **
+Open up the FrontEnd portal in the browser using the url : `shortloop.company-name.com`
+It will ask you to submit the URL for the Control-Tower component, which is deployed alongside frontend using the above docker-compose command, just the port number is different. 
+Add : `shortloop.company-name.com:8080` and submit. 
 ___
 
 ### Method-2 : Installing ShortLoop (Without DB)
