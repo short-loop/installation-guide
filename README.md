@@ -23,6 +23,7 @@ TODO :  ADD details for the ELB or Elastic IP.
 Suggested DNS name : `shortloop.company-name.com`
 
 > NOTE : For the rest of the guide, we will assume that you have the DNS configured to access your instance. If not, just replace `shortloop.company-name.com` with the public IP of the instance. 
+
 ___
 
 #### Components of ShortLoop : 
