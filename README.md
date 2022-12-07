@@ -79,19 +79,13 @@ ___
 ### Method-2 : Installing ShortLoop (Without DB)
 > Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
 
-**Step - 1: Download the docker compose file**
+**Step - 1 : Download the `docker-compose.yaml` & `.env` files required for installation.**
 
 ```bash
-curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
+curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
-**Step - 2 : Create the .env file at the same location (using the template)**
-
-```bash
-curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
-```
-
-**Step - 3 Start ShortLoop :**
+**Step - 2 Start ShortLoop :**
 ```bash
 docker-compose --profile self-db up -d
 ```
@@ -140,7 +134,7 @@ ___
 
 ```
     shortloop.enabled=true
-    shortloop.ctUrl=http://host-name:8080       # the deployed control-tower url here.
+    shortloop.ctUrl=http://shortloop.company-name.com:8080       # the deployed control-tower url here.
     shortloop.applicationName=service-name      # application name here how you want discover on portal.
 ```
 
