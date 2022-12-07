@@ -91,29 +91,7 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 ```
 
 
-
-**Step - 2 : Add the configurations in the downloaded `.env` file.** 
-
-Open up the `.env` file in your preferred editor and provide the DB configuration. 
-`.env` file looks something like this : 
-Just need to update the DB_HOST with value like : `shortloop.company-name.com:5432`
-```bash
-# DB config (use only if you are providing external DB)
-DB_HOST=<postgres_db_endpoint>
-DB_PORT=5432
-DB_NAME=shortloop
-DB_USER=shortloop
-DB_PWD=shortloop
-
-# Portal Port Customisation (default is 80). To Change; uncomment the below line.
-# UI_PORT=80
-
-# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
-# CONTROL_TOWER_PORT=8080
-```
-
-
-**Step - 3 Start ShortLoop :**
+**Step - 2 Start ShortLoop :**
 ```bash
 sudo docker-compose --profile self-db up -d
 ```
@@ -189,8 +167,12 @@ After the changes, redeploy your Java Application.
 
 ___
 
+##### Accessing & Configuring the Shortloop Portal : 
 Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
-> http://shortloop.company-name.com
+`http://shortloop.company-name.com`
+
+Initially the Portal will ask you to add the configuration for `CT_URL` 
+Add `http://shortloop.company-name.com:8080` and hit submit. 
 
 NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
 
