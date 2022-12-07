@@ -146,18 +146,14 @@ ___
 
 **4. Add the following piece of code on top of you root level Application.java file**
 
-```java
-@ComponentScan(basePackages = {
-    "dev.shortloop"
-})
+```Java
+@Import(ShortloopAutoConfiguration.class)
 ```
 *After adding the above, your Application.java file should look something like this :*
 
 ```java
 ... 
-@ComponentScan(basePackages = {
-    "dev.shortloop"
-})
+@Import(ShortloopAutoConfiguration.class)
 public class Application {
   public static void main(String[] args) {
     SpringApplication.run(Application.class, args);
@@ -166,10 +162,10 @@ public class Application {
 }
 
 ```
+___
 
-
-Once the installation is completed from either of the above method, ShortLoop Portal will be accessible here. 
-> http://localhost:80
+Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
+> http://shortloop.company-name.com
 
 NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
 
