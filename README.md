@@ -48,7 +48,7 @@ ___
 curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
-**Step - 3 : Add the configurations in the downloaded `.env` file.** 
+**Step - 3 : Update the downloaded `.env` file.**
 
 Open up the `.env` file in your preferred editor and provide the DB configuration. 
 `.env` file looks something like this : 
@@ -72,12 +72,6 @@ DB_PWD=<db_password>
 sudo docker-compose --profile external-db up -d
 ```
 
-**Step - 5 : Provide the ShortLoop frontend portal, the configured address.**
-
-Open up the FrontEnd portal in the browser using the url : `shortloop.company-name.com`
-It will ask you to submit the URL for the Control-Tower component, which is deployed alongside frontend using the above docker-compose command, just the port number is different. 
-Add : `shortloop.company-name.com:8080` and submit. 
-
 ___
 
 ### Method-2 : Installing ShortLoop (Without DB)
@@ -94,6 +88,18 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 ```bash
 sudo docker-compose --profile self-db up -d
 ```
+
+___
+
+#### Accessing & Configuring the Shortloop Portal : 
+Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
+`http://shortloop.company-name.com`
+
+Initially the Portal will ask you to add the configuration for `CT_URL` 
+Add `http://shortloop.company-name.com:8080` and hit submit. 
+
+NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
+
 
 ___
 
@@ -163,18 +169,6 @@ public class Application {
 ```
 
 After the changes, redeploy your Java Application.
-
-___
-
-##### Accessing & Configuring the Shortloop Portal : 
-Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
-`http://shortloop.company-name.com`
-
-Initially the Portal will ask you to add the configuration for `CT_URL` 
-Add `http://shortloop.company-name.com:8080` and hit submit. 
-
-NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
-
 
 ___
 
