@@ -16,7 +16,9 @@ This Image contains Docker (20.10) & Docker Composed installed on Ubuntu 22-LTS.
 
 ##### 2. Open up the ports : 
 In the security group of your EC2 instance, edit the "Inbound Rules"
-and add the inbound for port `80` & `8080` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
+and add the inbound for port `80`, `8080` & `5432` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
+
+NOTE : The exposure of port `5432` is required only if you are not providing external DB. (i.e. installation by Method-2 below.)
 
 ##### 3. Add the DNS for the ease of access for the public IP. (Optional)
 Suggested DNS name : `shortloop.company-name.com`
