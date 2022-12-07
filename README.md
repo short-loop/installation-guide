@@ -84,13 +84,36 @@ ___
 ### Method-2 : Installing ShortLoop (Without DB)
 > Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
 
-**Step - 2 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
+**Step - 1 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
 ```bash
 curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
-**Step - 2 Start ShortLoop :**
+
+
+**Step - 2 : Add the configurations in the downloaded `.env` file.** 
+
+Open up the `.env` file in your preferred editor and provide the DB configuration. 
+`.env` file looks something like this : 
+Just need to update the DB_HOST with value like : `shortloop.company-name.com:5432`
+```bash
+# DB config (use only if you are providing external DB)
+DB_HOST=<postgres_db_endpoint>
+DB_PORT=5432
+DB_NAME=shortloop
+DB_USER=shortloop
+DB_PWD=shortloop
+
+# Portal Port Customisation (default is 80). To Change; uncomment the below line.
+# UI_PORT=80
+
+# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
+# CONTROL_TOWER_PORT=8080
+```
+
+
+**Step - 3 Start ShortLoop :**
 ```bash
 sudo docker-compose --profile self-db up -d
 ```
