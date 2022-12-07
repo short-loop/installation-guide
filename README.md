@@ -19,7 +19,6 @@ In the security group of your EC2 instance, edit the "Inbound Rules"
 and add the inbound for port `80` & `8080` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
 
 ##### 3. Add the DNS for the ease of access for the public IP. (Optional)
-TODO :  ADD details for the ELB or Elastic IP. 
 Suggested DNS name : `shortloop.company-name.com`
 
 > NOTE : For the rest of the guide, we will assume that you have the DNS configured to access your instance. If not, just replace `shortloop.company-name.com` with the public IP of the instance. 
@@ -42,13 +41,14 @@ ___
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
 
 
-**Step - 2 : Download the `docker-compose.yaml` & `.env` files required for installation.**
+**Step - 2 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
 ```bash
-sudo curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
+curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
 **Step - 3 : Add the configurations in the downloaded `.env` file.** 
+
 Open up the `.env` file in your preferred editor and provide the DB configuration. 
 `.env` file looks something like this : 
 ```bash
@@ -71,19 +71,21 @@ DB_PWD=<db_password>
 sudo docker-compose --profile external-db up -d
 ```
 
-**Step - 5 : Provide the ShortLoop frontend portal, the configured address. **
+**Step - 5 : Provide the ShortLoop frontend portal, the configured address.**
+
 Open up the FrontEnd portal in the browser using the url : `shortloop.company-name.com`
 It will ask you to submit the URL for the Control-Tower component, which is deployed alongside frontend using the above docker-compose command, just the port number is different. 
 Add : `shortloop.company-name.com:8080` and submit. 
+
 ___
 
 ### Method-2 : Installing ShortLoop (Without DB)
 > Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
 
-**Step - 1 : Download the `docker-compose.yaml` & `.env` files required for installation.**
+**Step - 2 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
 ```bash
-sudo curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
+curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
 ```
 
 **Step - 2 Start ShortLoop :**
