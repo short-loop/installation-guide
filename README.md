@@ -3,7 +3,9 @@ Create Automated API Collections, that never goes stale.
 
 ___
 ### Preparation : 
-###### Create a fresh EC2 instance with Docker and Docker-Compose installed. You can use a publicly available ShortLoop AMI : `ami-0c8dfd6b207aecadf`
+###### Create a fresh EC2 instance with Docker and Docker-Compose installed. 
+###### Optionally you can use our publicly available ShortLoop AMI : `ami-0c8dfd6b207aecadf`
+###### This Image contains Docker (20.10) & Docker Composed installed on Ubuntu 22-LTS
 
 **Recommended Minimum Configuration :**  
 4Gb RAM + 8 Gb Disk  
@@ -27,41 +29,35 @@ ___
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
 
 
-**Step - 2 : Download the docker compose file**
+**Step - 2 : Download the docker compose file of ShortLoop**
 
 ```bash
 curl -L -o docker-compose.yaml "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/docker-compose.yaml"
 ```
 
 
-**Step - 3 : Create the .env file at the same location (using the template)**
+**Step - 3 : The docker-compose file expects a `.env` file when executed, so let's create the `.env` file using the command below.**
 
 ```bash
 curl -L -o .env "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/env_template.txt"
 ```
 
-**Step - 4 : Update the create .env file**
-Open up the `.env` file in your preferred editor and provide the configuration. 
-Eg: Post edit your `.env` file would look something like this.
+**Step - 4 : Add the configurations in the newly created `.env` file.** 
+Open up the `.env` file in your preferred editor and provide the DB configuration. 
+`.env` file looks something like this : 
 ```bash
-## use this template to create your own .env file.
-
-# Required configuration. Endpoint ShortLoop control tower. Eg: http://localhost:8080
-CT_URL=http://localhost:8080
-
 # DB config (use only if you are providing external DB)
-DB_HOST=postgres_host_name
-DB_PORT=5432
-DB_NAME=shortloop
-DB_USER=shortloop
-DB_PWD=shortloop
+DB_HOST=<postgres_db_endpoint>
+DB_PORT=<db_port>
+DB_NAME=<db_name>
+DB_USER=<db_username>
+DB_PWD=<db_password>
 
+# Portal Port Customisation (default is 80). To Change; uncomment the below line.
+# UI_PORT=80
 
-# Portal Port Customisation (default is 80)
-UI_PORT=<port> 
-
-# Control Tower Port Customisation (default is 8080)
-CONTROL_TOWER_PORT=<port>
+# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
+# CONTROL_TOWER_PORT=8080
 ```
 
 
