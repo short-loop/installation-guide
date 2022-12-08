@@ -50,9 +50,13 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 
 **Step - 3 : Update the downloaded `.env` file.**
 
-Open up the `.env` file in your preferred editor and provide the DB configuration. 
+Open up the `.env` file in your preferred editor and provide the DB configuration & your Org Name.
 `.env` file looks something like this : 
 ```bash
+
+# Your Org/Company Name. Eg: google, facebook
+ORG_NAME=<org_name>
+
 # DB config (use only if you are providing external DB)
 DB_HOST=<postgres_db_endpoint>
 DB_PORT=<db_port>
