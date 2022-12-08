@@ -19,6 +19,7 @@ services:
       - DB_PWD=${DB_PWD}
       - LOG_DIR=/var/log/shortloop/control-tower
       - LUCENE_PATH=/var/log/shortloop/lucene
+      - ENV=prod
     ports:
       - ${CONTROL_TOWER_PORT:-8080}:8080
   shortloop-control-tower-with-self-db:
@@ -35,6 +36,7 @@ services:
       - DB_PWD=shortloop
       - LOG_DIR=/var/log/shortloop/control-tower
       - LUCENE_PATH=/var/log/shortloop/lucene
+      - ENV=prod
     ports:
       - ${CONTROL_TOWER_PORT:-8080}:8080
     depends_on:
