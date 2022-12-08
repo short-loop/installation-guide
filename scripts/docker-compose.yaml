@@ -4,7 +4,7 @@ services:
     image: shortloop/portal:0.0.1
     container_name: shortloop-portal
     environment:
-      - REACT_APP_POSTHOG_API_KEY=${POSTHOG_KEY}
+      - REACT_APP_POSTHOG_API_KEY=${REACT_APP_POSTHOG_API_KEY}
       - REACT_APP_POSTHOG_API_HOST=https://app.posthog.com
       - ORG_NAME=${ORG_NAME}
     ports:
