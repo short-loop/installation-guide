@@ -1,56 +1,43 @@
-appName: shortloop
-service: 
-  type: ClusterIP
-  expose:
-ingress:
-  path:
-  - /
-  exposeName: shortloop
-resources:
-  limits:
-    cpu: 1000m
-    memory: 1024Mi
-  requests:
-    cpu: 100m
-    memory: 100Mi
-image:
-  repository: draft
-  tag: dev
-  pullPolicy: IfNotPresent
-probePath: /status
-probePort: 5008
-livenessProbe:
-  initialDelaySeconds: 
-  periodSeconds: 
-  successThreshold: 
-  timeoutSeconds: 
-readinessProbe:
-  periodSeconds: 
-  successThreshold: 
-  timeoutSeconds:
-  initialDelaySeconds: 
+shortLoopControlTower:
+  appName: shortloop-control-tower
+  domainName: xyz.com
+  exposePort: 8080
+  replicaCount: 1
+  image:
+    repository: k8s.gcr.io/echoserver:1.4
+    tag: 1.4
+    pullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
+shortLoopUI:
+  appName: shortloop-ui
+  domainName: xyz.com
+  exposePort: 5000
+  replicaCount: 1
+  image:
+    repository:
+    tag:
+    pullPolicy: IfNotPresent
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+
 terminationGracePeriodSeconds: 120
 replicaCount: 1
 maxSurge: 30%
 maxUnavailable: 10%
-tolerations:
-env:
-pdb: 
+pdb:
   minAvailable: 49%
 drainTime: 60
 preStopCommand: echo Done
-nodeAffinity:
-podAntiAffinity: 
-  preferredDuringSchedulingIgnoredDuringExecution: 
-  - weight: 50
-    podAffinityTerm:
-      labelSelector:
-        matchExpressions:
-        - key: app
-          operator: In
-          values:
-          - app-name
-      topologyKey: "kubernetes.io/hostname"
-
-
 rollover: false

@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.shortLoopControlTower.appName }}-elb
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Values.shortLoopControlTower.appName }}
+    chart: {{ template "chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+spec:
+  rules:
+    - host:  {{ .Values.shortLoopControlTower.appName }}.{{ .Values.shortLoopControlTower.domainName }}
+      http:
+        paths:
+          - path: {{ default "/" . | quote}}
+            backend:
+              serviceName: {{ .Values.shortLoopControlTower.appName }}
+              servicePort: {{ .Values.shortLoopControlTower.exposePort }}
