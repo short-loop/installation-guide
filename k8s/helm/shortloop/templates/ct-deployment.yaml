@@ -68,4 +68,4 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         resources:
-        {{ toYaml .Values.resources | indent 12 }}
+          {{ toYaml .Values.shortLoopControlTower.resources}}

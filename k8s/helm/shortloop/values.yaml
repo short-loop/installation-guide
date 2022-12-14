@@ -14,7 +14,6 @@ shortLoopControlTower:
     requests:
       cpu: 100m
       memory: 100Mi
-
 shortLoopUI:
   appName: shortloop-ui
   domainName: xyz.com
