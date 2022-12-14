@@ -4,13 +4,13 @@ metadata:
   name: {{ .Values.shortLoopControlTower.appName }}
   namespace: {{ .Release.Namespace }}
   labels:
-  app: {{ template "name" . }}
-  app.kubernetes.io/name: {{ template "name" . }}
+  app: {{ .Values.shortLoopControlTower.appName }}
+  app.kubernetes.io/name: {{ .Values.shortLoopControlTower.appName }}
   namespace: {{ .Release.Namespace }}
   annotations:
   {{ toYaml .annotations | indent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
     - port: {{ .Values.shortLoopControlTower.exposePort }}
       targetPort: {{ .Values.shortLoopControlTower.exposePort }}
@@ -18,4 +18,4 @@ spec:
       name: shortloop-ct-http-8080
 selector:
   namespace: {{ .Release.Namespace }}
-  app: {{ template "name" . }}
+  app: {{ .Values.shortLoopControlTower.appName }}

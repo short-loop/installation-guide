@@ -38,7 +38,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.shortLoopControlTower.image.repository }}:{{ .Values.shortLoopControlTower.image.tag }}"
         lifecycle:                   
           preStop:                   
             exec:                    
@@ -46,26 +46,26 @@ spec:
               - sh
               - -c
               - "{{ default "echo Done" .Values.preStopCommand}} && sleep {{ default 120 .Values.drainTime }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        imagePullPolicy: {{ .Values.shortLoopControlTower.image.pullPolicy }}
         terminationMessagePath: "/logs/app-name/termination.log"
         terminationMessagePolicy: "FallbackToLogsOnError"
         ports:
         - containerPort: {{ .Values.shortLoopControlTower.exposePort }}
         livenessProbe:
           httpGet:
-            path: {{ default "/status" .Values.probePath }}
-            port: {{ .Values.probePort }}
-          initialDelaySeconds: {{ default "30" .Values.livenessProbe.initialDelaySeconds }}
-          periodSeconds: {{ default "20" .Values.livenessProbe.periodSeconds }}
-          successThreshold: {{ default "1" .Values.livenessProbe.successThreshold }}
-          timeoutSeconds: {{ default "1" .Values.livenessProbe.timeoutSeconds }}
+            path: /
+            port: {{ .Values.shortLoopControlTower.exposePort }}
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
         readinessProbe:
           httpGet:
-            path: {{ default "/status" .Values.probePath }}
-            port: {{ .Values.probePort }}
-          initialDelaySeconds: {{ default "30" .Values.readinessProbe.initialDelaySeconds }}
-          periodSeconds: {{ default "15" .Values.readinessProbe.periodSeconds }}
-          successThreshold: {{ default "1"  .Values.readinessProbe.successThreshold }}
-          timeoutSeconds: {{ default "1" .Values.readinessProbe.timeoutSeconds }}
+            path: /
+            port: {{ .Values.shortLoopControlTower.exposePort }}
+          initialDelaySeconds: 30
+          periodSeconds: 15
+          successThreshold: 1
+          timeoutSeconds: 1
         resources:
         {{ toYaml .Values.resources | indent 12 }}

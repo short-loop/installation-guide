@@ -4,8 +4,8 @@ shortLoopControlTower:
   exposePort: 8080
   replicaCount: 1
   image:
-    repository: k8s.gcr.io/echoserver:1.4
-    tag: 1.4
+    repository: hello-world
+    tag: latest
     pullPolicy: IfNotPresent
   resources:
     limits:
