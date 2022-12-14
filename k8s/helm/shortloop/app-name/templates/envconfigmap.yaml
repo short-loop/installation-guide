@@ -1,0 +1,16 @@
+{{- if .Values.env }}
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ template "name" . }}-env-config-map
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "name" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  {{- range $p := .Values.env}}
+  {{ .name }}: {{ .value | quote}}
+  {{- end }}
+{{- end }}

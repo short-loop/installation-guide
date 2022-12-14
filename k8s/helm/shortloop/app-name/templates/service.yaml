@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "serviceName" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+  app: {{ template "name" . }}
+  app.kubernetes.io/name: {{ template "name" . }}
+  namespace: {{ .Release.Namespace }}
+  annotations:
+  {{ toYaml .annotations | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 80 //https @todo
+      targetPort: {{ index .Values.servicePort 0 }}
+      protocol: TCP
+      name: http-80-{{ index .Values.servicePort 0 }}
+selector:
+  namespace: {{ .Release.Namespace }}
+  app: {{ template "name" . }}

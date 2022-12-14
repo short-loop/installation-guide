@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "name" . }}-elb
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "name" . }}
+    chart: {{ template "chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+spec:
+  rules:
+    - host:  {{ .Values.exposeName }}.{{ .Values.domainName }}
+      http:  // @todo https
+        paths:
+          - path: {{ default "/" . | quote}}
+            backend:
+              serviceName: {{ .Values.serviceName }}
+              servicePort: {{ .Values.servicePort }}
