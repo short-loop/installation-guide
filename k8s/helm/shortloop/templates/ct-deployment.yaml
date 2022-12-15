@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.shortLoopControlTower.appName }}
@@ -6,6 +6,7 @@ metadata:
   labels:
     app: {{ .Values.shortLoopControlTower.appName }}
     namespace: {{ .Release.Namespace }}
+    release: {{ .Release.Name }}
     draft: {{ default "draft-app" .Values.draft }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
@@ -68,4 +69,4 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         resources:
-          {{ toYaml .Values.shortLoopControlTower.resources}}
+{{ toYaml .Values.shortLoopControlTower.resources | indent 12}}
