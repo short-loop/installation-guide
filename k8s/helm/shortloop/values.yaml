@@ -1,10 +1,10 @@
 shortLoopControlTower:
   appName: shortloop-control-tower
   domainName: xyz.com
-  exposePort: 8080
+  exposePort: 80
   replicaCount: 1
   image:
-    repository: hello-world
+    repository: prakhar1989/static-site
     tag: latest
     pullPolicy: IfNotPresent
   resources:
