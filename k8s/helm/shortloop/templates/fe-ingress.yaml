@@ -14,10 +14,10 @@ spec:
     - host:  {{ .Values.shortLoopUI.appName }}.{{ .Values.shortLoopUI.domainName }}
       http:
         paths:
-            - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: {{ .Values.shortLoopUI.appName }}
-                  port:
-                    number: {{ .Values.shortLoopUI.exposePort }}
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.shortLoopUI.appName }}
+                port:
+                  number: {{ .Values.shortLoopUI.exposePort }}
