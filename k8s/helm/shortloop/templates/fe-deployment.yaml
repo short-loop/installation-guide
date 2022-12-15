@@ -46,25 +46,17 @@ spec:
           terminationMessagePath: "/logs/app-name/termination.log"
           terminationMessagePolicy: "FallbackToLogsOnError"
           env:
-            - name: DB_HOST
-              value: {{ .Values.dbHost }}
-            - name: DB_PORT
-              value: {{ .Values.dbPort }}
-            - name: DB_NAME
-              value: {{ .Values.dbName }}
-            - name: DB_USER
-              value: {{ .Values.dbUser }}
-            - name: DB_PWD
-              value: {{ .Values.dbPwd }}
-            - name: LOG_DIR
-              value: {{ .Values.logDir }}
-            - name: ENV
-              value: {{ .Values.env }}
+            - name: REACT_APP_POSTHOG_API_KEY
+              value: {{ .Values.shortLoopControlTower.dbHost }}
+            - name: REACT_APP_POSTHOG_API_HOST
+              value: {{ .Values.shortLoopControlTower.dbPort }}
+            - name: ORG_NAME
+              value: {{ .Values.shortLoopControlTower.dbName }}
           ports:
             - containerPort: {{ .Values.shortLoopUI.exposePort }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: {{ .Values.shortLoopUI.exposePort }}
             initialDelaySeconds: 30
             periodSeconds: 30
@@ -72,7 +64,7 @@ spec:
             timeoutSeconds: 1
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: {{ .Values.shortLoopUI.exposePort }}
             initialDelaySeconds: 30
             periodSeconds: 15
