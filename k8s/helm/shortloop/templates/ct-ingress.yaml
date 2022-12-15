@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.shortLoopControlTower.appName }}-elb
@@ -14,7 +14,10 @@ spec:
     - host:  {{ .Values.shortLoopControlTower.appName }}.{{ .Values.shortLoopControlTower.domainName }}
       http:
         paths:
-          - path: {{ default "/" . | quote}}
+          - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{ .Values.shortLoopControlTower.appName }}
-              servicePort: {{ .Values.shortLoopControlTower.exposePort }}
+              service:
+                name: {{ .Values.shortLoopControlTower.appName }}
+                port:
+                  number: {{ .Values.shortLoopControlTower.exposePort }}

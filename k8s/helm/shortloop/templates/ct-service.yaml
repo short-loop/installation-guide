@@ -7,6 +7,7 @@ metadata:
     app: {{ .Values.shortLoopControlTower.appName }}
     namespace: {{ .Release.Namespace }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    release: {{ .Release.Name }}
   annotations:
   {{ toYaml .annotations | indent 4 }}
 spec:
