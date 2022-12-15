@@ -116,19 +116,19 @@ ___
 <project>
     ...
     ...
-	<repositories>
-		<repository>
-			<id>ossrh</id>
-			<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-		</repository>
-	</repositories>
-	
+    <repositories>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    
 </project>
 ```
 
@@ -158,10 +158,20 @@ ___
 ```Java
 @Import(ShortloopAutoConfiguration.class)
 ```
+
+```Java
+import dev.shortloop.agent.ShortloopAutoConfiguration;
+```
+
 *After adding the above, your Application.java file should look something like this :*
 
 ```java
 ... 
+import dev.shortloop.agent.ShortloopAutoConfiguration;
+...
+...
+
+...
 @Import(ShortloopAutoConfiguration.class)
 public class Application {
   public static void main(String[] args) {
