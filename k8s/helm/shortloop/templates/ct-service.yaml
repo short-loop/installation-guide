@@ -4,9 +4,8 @@ metadata:
   name: {{ .Values.shortLoopControlTower.appName }}
   namespace: {{ .Release.Namespace }}
   labels:
-  app: {{ .Values.shortLoopControlTower.appName }}
-  app.kubernetes.io/name: {{ .Values.shortLoopControlTower.appName }}
-  namespace: {{ .Release.Namespace }}
+    app: {{ .Values.shortLoopControlTower.appName }}
+    namespace: {{ .Release.Namespace }}
   annotations:
   {{ toYaml .annotations | indent 4 }}
 spec:
@@ -16,6 +15,6 @@ spec:
       targetPort: {{ .Values.shortLoopControlTower.exposePort }}
       protocol: TCP
       name: shortloop-ct-http-8080
-selector:
-  namespace: {{ .Release.Namespace }}
-  app: {{ .Values.shortLoopControlTower.appName }}
+  selector:
+    namespace: {{ .Release.Namespace }}
+    app: {{ .Values.shortLoopControlTower.appName }}
