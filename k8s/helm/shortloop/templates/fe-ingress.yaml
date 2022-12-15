@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.shortLoopUI.appName }}-elb
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Values.shortLoopUI.appName }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  annotations:
+spec:
+  rules:
+    - host:  {{ .Values.shortLoopUI.appName }}.{{ .Values.shortLoopUI.domainName }}
+      http:
+        paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: {{ .Values.shortLoopUI.appName }}
+                  port:
+                    number: {{ .Values.shortLoopUI.exposePort }}

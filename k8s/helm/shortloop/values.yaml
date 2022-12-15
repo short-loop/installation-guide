@@ -4,32 +4,39 @@ shortLoopControlTower:
   exposePort: 80
   replicaCount: 1
   image:
-    repository: prakhar1989/static-site
-    tag: latest
+    repository: shortloop/control-tower
+    tag: 0.0.1
     pullPolicy: IfNotPresent
   resources:
     limits:
       cpu: 1000m
-      memory: 1024Mi
+      memory: 8024Mi
     requests:
       cpu: 100m
-      memory: 100Mi
+      memory: 1024Mi
+  dbHost:
+  dbPost:
+  dbName:
+  dbUser:
+  dbPwd:
+  logDir: /var/log/shortloop
+  env: prod
 shortLoopUI:
   appName: shortloop-ui
   domainName: xyz.com
   exposePort: 5000
   replicaCount: 1
   image:
-    repository:
-    tag:
+    repository: shortloop/portal
+    tag: 0.0.1
     pullPolicy: IfNotPresent
   resources:
     limits:
       cpu: 1000m
-      memory: 1024Mi
+      memory: 4024Mi
     requests:
       cpu: 100m
-      memory: 100Mi
+      memory: 1024Mi
 
 terminationGracePeriodSeconds: 120
 replicaCount: 1

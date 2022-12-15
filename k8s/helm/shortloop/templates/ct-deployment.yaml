@@ -50,6 +50,21 @@ spec:
         imagePullPolicy: {{ .Values.shortLoopControlTower.image.pullPolicy }}
         terminationMessagePath: "/logs/app-name/termination.log"
         terminationMessagePolicy: "FallbackToLogsOnError"
+        env:
+          - name: DB_HOST
+            value: {{ .Values.shortLoopControlTower.dbHost }}
+          - name: DB_PORT
+            value: {{ .Values.shortLoopControlTower.dbPort }}
+          - name: DB_NAME
+            value: {{ .Values.shortLoopControlTower.dbName }}
+          - name: DB_USER
+            value: {{ .Values.shortLoopControlTower.dbUser }}
+          - name: DB_PWD
+            value: {{ .Values.shortLoopControlTower.dbPwd }}
+          - name: LOG_DIR
+            value: {{ .Values.shortLoopControlTower.logDir }}
+          - name: ENV
+            value: {{ .Values.shortLoopControlTower.env }}
         ports:
         - containerPort: {{ .Values.shortLoopControlTower.exposePort }}
         livenessProbe:
