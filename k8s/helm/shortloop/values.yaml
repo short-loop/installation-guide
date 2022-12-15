@@ -15,17 +15,20 @@ shortLoopControlTower:
       cpu: 100m
       memory: 1024Mi
   dbHost:
-  dbPost:
+  dbPort:
   dbName:
   dbUser:
   dbPwd:
   logDir: /var/log/shortloop
-  env: prod
+  env: dev
 shortLoopUI:
   appName: shortloop-ui
   domainName: xyz.com
   exposePort: 5000
   replicaCount: 1
+  postHogKey:
+  postHogHost:
+  orgName:
   image:
     repository: shortloop/portal
     tag: 0.0.1

@@ -47,11 +47,11 @@ spec:
           terminationMessagePolicy: "FallbackToLogsOnError"
           env:
             - name: REACT_APP_POSTHOG_API_KEY
-              value: {{ .Values.shortLoopControlTower.dbHost }}
+              value: {{ .Values.shortLoopUI.postHogKey }}
             - name: REACT_APP_POSTHOG_API_HOST
-              value: {{ .Values.shortLoopControlTower.dbPort }}
+              value: {{ .Values.shortLoopUI.postHogHost }}
             - name: ORG_NAME
-              value: {{ .Values.shortLoopControlTower.dbName }}
+              value: {{ .Values.shortLoopUI.orgName }}
           ports:
             - containerPort: {{ .Values.shortLoopUI.exposePort }}
           livenessProbe:

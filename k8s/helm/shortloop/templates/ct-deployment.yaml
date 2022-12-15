@@ -52,19 +52,19 @@ spec:
         terminationMessagePolicy: "FallbackToLogsOnError"
         env:
           - name: DB_HOST
-            value: {{ .Values.dbHost }}
+            value: {{ .Values.shortLoopControlTower.dbHost }}
           - name: DB_PORT
-            value: {{ .Values.dbPort }}
+            value: {{ .Values.shortLoopControlTower.dbPort | quote }}
           - name: DB_NAME
-            value: {{ .Values.dbName }}
+            value: {{ .Values.shortLoopControlTower.dbName }}
           - name: DB_USER
-            value: {{ .Values.dbUser }}
+            value: {{ .Values.shortLoopControlTower.dbUser }}
           - name: DB_PWD
-            value: {{ .Values.dbPwd }}
+            value: {{ .Values.shortLoopControlTower.dbPwd }}
           - name: LOG_DIR
-            value: {{ .Values.logDir }}
+            value: {{ .Values.shortLoopControlTower.logDir }}
           - name: ENV
-            value: {{ .Values.env }}
+            value: {{ .Values.shortLoopControlTower.env }}
         ports:
           - containerPort: {{ .Values.shortLoopControlTower.exposePort }}
         livenessProbe:
