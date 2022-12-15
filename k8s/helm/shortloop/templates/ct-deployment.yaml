@@ -51,22 +51,14 @@ spec:
         terminationMessagePath: "/logs/app-name/termination.log"
         terminationMessagePolicy: "FallbackToLogsOnError"
         env:
-          - name: DB_HOST
+          - name: REACT_APP_POSTHOG_API_KEY
             value: {{ .Values.shortLoopControlTower.dbHost }}
-          - name: DB_PORT
+          - name: REACT_APP_POSTHOG_API_HOST
             value: {{ .Values.shortLoopControlTower.dbPort }}
-          - name: DB_NAME
+          - name: ORG_NAME
             value: {{ .Values.shortLoopControlTower.dbName }}
-          - name: DB_USER
-            value: {{ .Values.shortLoopControlTower.dbUser }}
-          - name: DB_PWD
-            value: {{ .Values.shortLoopControlTower.dbPwd }}
-          - name: LOG_DIR
-            value: {{ .Values.shortLoopControlTower.logDir }}
-          - name: ENV
-            value: {{ .Values.shortLoopControlTower.env }}
         ports:
-        - containerPort: {{ .Values.shortLoopControlTower.exposePort }}
+          - containerPort: {{ .Values.shortLoopControlTower.exposePort }}
         livenessProbe:
           httpGet:
             path: /
@@ -84,4 +76,4 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         resources:
-{{ toYaml .Values.shortLoopControlTower.resources | indent 12}}
+{{ toYaml .Values.shortLoopControlTower.resources | indent 10}}

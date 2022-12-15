@@ -34,10 +34,6 @@ shortLoopUI:
     limits:
       cpu: 1000m
       memory: 4024Mi
-    requests:
-      cpu: 100m
-      memory: 1024Mi
-
 terminationGracePeriodSeconds: 120
 replicaCount: 1
 maxSurge: 30%
