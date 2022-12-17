@@ -67,6 +67,8 @@ services:
     shm_size: 256MB 
 
 volumes:
+    shortloop-logs-fe:
+        external: false
     shortloop-postgres-volume:
         external: false
     shortloop-logs:
