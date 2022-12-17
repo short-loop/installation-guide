@@ -1,0 +1,4 @@
+#app-name
+
+Thank you for installing {{ .Chart.Name }}.
+Your release is named {{ .Release.Name }}.
