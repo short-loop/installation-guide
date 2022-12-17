@@ -109,30 +109,7 @@ ___
 
 ### Installing SDK in **Java Spring-Boot**  Web Application.
 
-**1. Add OSSRH (Open Source Software Repository Hosting) Repository info in your root pom file.** 
-
-
-```xml
-<project>
-    ...
-    ...
-    <repositories>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-    
-</project>
-```
-
-**2. Add Maven Dependency :**
+**1. Add Maven Dependency :**
 
 ```xml
 <dependencies>
@@ -141,19 +118,19 @@ ___
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.4</version>
     </dependency>
 </dependencies>
 ```
-**3. update application.properties configuration file**
+**2. update application.properties configuration file**
 
 ```
     shortloop.enabled=true
-    shortloop.ctUrl=http://shortloop.company-name.com:8080       # the deployed control-tower url here.
+    shortloop.ctUrl=http://shortloop.company-name.com       # the deployed control-tower url here.
     shortloop.applicationName=service-name      # application name here how you want discover on portal.
 ```
 
-**4. Add the following piece of code on top of you root level Application.java file**
+**3. Add the following piece of code on top of you root level Application.java file**
 
 ```Java
 @Import(ShortloopAutoConfiguration.class)
