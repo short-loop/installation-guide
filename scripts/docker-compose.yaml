@@ -6,7 +6,7 @@ services:
     volumes:
       - shortloop-logs-fe:/var/log/shortloop
     environment:
-      - CT_URL=${CT_URL}
+      - CT_URL=${CT_URL:-http://shortloop-control-tower}
       - REACT_APP_POSTHOG_API_KEY=${REACT_APP_POSTHOG_API_KEY}
       - REACT_APP_POSTHOG_API_HOST=https://app.posthog.com
       - LOG_DIR=/var/log/shortloop/fe
@@ -45,6 +45,7 @@ services:
       - DB_NAME=shortloop
       - DB_USER=shortloop
       - DB_PWD=shortloop
+      - SENTRY_DSN=${SENTRY_DSN}
       - LOG_DIR=/var/log/shortloop/control-tower
       - LUCENE_PATH=/var/log/shortloop/lucene
       - ENV=prod
