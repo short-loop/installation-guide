@@ -64,11 +64,23 @@ DB_NAME=<db_name>
 DB_USER=<db_username>
 DB_PWD=<db_password>
 
+
+# Analytics configuration. (Only to be filled by ShortLoop Org.)
+REACT_APP_POSTHOG_API_KEY=<key>
+
+
+# Error Monitoring (Only to be filled by ShortLoop Org.)
+SENTRY_DSN=<key>
+
+
+##### Customisation ######
+
 # Portal Port Customisation (default is 80). To Change; uncomment the below line.
 # UI_PORT=80
 
 # Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
 # CONTROL_TOWER_PORT=8080
+
 ```
 
 **Step - 4 : Start ShortLoop.**
@@ -84,13 +96,39 @@ ___
 **Step - 1 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
 ```bash
-curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env}" -o "#1"
+curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/scripts/{docker-compose.yaml,.env-local-db}" -o "#1"
 ```
 
 
-**Step - 2 Start ShortLoop :**
+**Step - 3 : Update the downloaded `.env-local-db` file.**
 ```bash
-sudo docker-compose --profile self-db up -d
+# Your Org/Company Name. Eg: google, facebook
+ORG_NAME=<org_name>
+
+
+# Analytics configuration. (Value to be provided by ShortLoop Org.)
+REACT_APP_POSTHOG_API_KEY=<key>
+
+
+# Error Monitoring (Value to be provided by ShortLoop Org.)
+SENTRY_DSN=<key>
+
+
+
+##### Customisation ######
+
+# Portal Port Customisation (default is 80). To Change; uncomment the below line.
+# UI_PORT=80
+
+
+# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
+# CONTROL_TOWER_PORT=8080
+
+```
+
+**Step - 3 Start ShortLoop :**
+```bash
+sudo docker-compose --profile self-db --env-file .env-local-db up -d
 ```
 
 ___

@@ -6,7 +6,7 @@ services:
     volumes:
       - shortloop-logs-fe:/var/log/shortloop
     environment:
-      - CT_URL=${CT_URL:-http://shortloop-control-tower}
+      - CT_URL=${CT_URL:-http://shortloop-control-tower:8080}
       - REACT_APP_POSTHOG_API_KEY=${REACT_APP_POSTHOG_API_KEY}
       - REACT_APP_POSTHOG_API_HOST=https://app.posthog.com
       - LOG_DIR=/var/log/shortloop/fe
