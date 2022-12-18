@@ -12,7 +12,7 @@ services:
       - LOG_DIR=/var/log/shortloop/fe
       - NODE_ENV=prod
       - SENTRY_DSN=${SENTRY_DSN}
-      - ORG_NAME=${ORG_NAME}
+      - ORG_NAME=${ORG_NAME?:ORG_NAME is a mandatory field. Please fill in the .env (or .env-local.db) file}
     ports:
       - ${UI_PORT:-80}:5000
   shortloop-control-tower-with-external-db:
