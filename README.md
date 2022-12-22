@@ -183,6 +183,11 @@ public class Application {
 
 ```
 
+*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)
+```bash
+mvn clean install
+```
+
 After the changes, redeploy your Java Application.
 
 ___
