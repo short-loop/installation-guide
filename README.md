@@ -16,7 +16,7 @@ This Image contains Docker (20.10) & Docker Composed installed on Ubuntu 22-LTS.
 
 ##### 2. Open up the ports : 
 In the security group of your EC2 instance, edit the "Inbound Rules"
-and add the inbound for port `80` & `8080` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
+and add the inbound for port `80` to be available from source `0.0.0.0/0` (Or your VPN IP if you are using any.)
 
 
 ##### 3. Add the DNS for the ease of access for the public IP. (Optional)
@@ -40,7 +40,7 @@ ___
 ### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
 
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
-
+TODO : Add the steps to create a DB and a new user.
 
 **Step - 2 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
@@ -55,7 +55,7 @@ Open up the `.env` file in your preferred editor and provide the DB configuratio
 ```bash
 
 # Your Org/Company Name. Eg: google, facebook
-ORG_NAME=<org_name>
+ORG_NAME=
 
 # DB config (use only if you are providing external DB)
 DB_HOST=<postgres_db_endpoint>
@@ -64,22 +64,17 @@ DB_NAME=<db_name>
 DB_USER=<db_username>
 DB_PWD=<db_password>
 
-
 # Analytics configuration. (Only to be filled by ShortLoop Org.)
-REACT_APP_POSTHOG_API_KEY=<key>
+ANALYTICS_KEY=
 
-
-# Error Monitoring (Only to be filled by ShortLoop Org.)
-SENTRY_DSN=<key>
+# Error Monitoring (Only to be filled by getting value from ShortLoop Org.)
+#SENTRY_DSN=
 
 
 ##### Customisation ######
 
-# Portal Port Customisation (default is 80). To Change; uncomment the below line.
-# UI_PORT=80
-
-# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
-# CONTROL_TOWER_PORT=8080
+# Port Customisation (default is 80). To Change; uncomment the below line.
+#SHORTLOOP_PORT=80
 
 ```
 
@@ -103,26 +98,18 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 **Step - 3 : Update the downloaded `.env-local-db` file.**
 ```bash
 # Your Org/Company Name. Eg: google, facebook
-ORG_NAME=<org_name>
-
+ORG_NAME=
 
 # Analytics configuration. (Value to be provided by ShortLoop Org.)
-REACT_APP_POSTHOG_API_KEY=<key>
+ANALYTICS_KEY=
 
-
-# Error Monitoring (Value to be provided by ShortLoop Org.)
-SENTRY_DSN=<key>
-
-
+# Error Monitoring (Only to be filled by getting value from ShortLoop Org.)
+#SENTRY_DSN=
 
 ##### Customisation ######
 
-# Portal Port Customisation (default is 80). To Change; uncomment the below line.
-# UI_PORT=80
-
-
-# Control Tower Port Customisation (default is 8080). To Change; uncomment the below line.
-# CONTROL_TOWER_PORT=8080
+# Port Customisation (default is 80). To Change; uncomment the below line.
+#SHORTLOOP_PORT=80
 
 ```
 
@@ -137,10 +124,8 @@ ___
 Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
 `http://shortloop.company-name.com`
 
-Initially the Portal will ask you to add the configuration for `CT_URL` 
-Add `http://shortloop.company-name.com:8080` and hit submit. 
 
-NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base.
+NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base, after you install the SDK.
 
 
 ___
