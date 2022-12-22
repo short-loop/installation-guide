@@ -40,7 +40,11 @@ ___
 ### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
 
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
-TODO : Add the steps to create a DB and a new user.
+```bash
+CREATE DATABASE shortloop;
+CREATE USER shortloop_user WITH ENCRYPTED PASSWORD 'shortloop';
+GRANT ALL PRIVILEGES ON DATABASE shortloop to shortloop_user;
+```
 
 **Step - 2 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
 
@@ -53,16 +57,15 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 Open up the `.env` file in your preferred editor and provide the DB configuration & your Org Name.
 `.env` file looks something like this : 
 ```bash
-
 # Your Org/Company Name. Eg: google, facebook
 ORG_NAME=
 
 # DB config (use only if you are providing external DB)
-DB_HOST=<postgres_db_endpoint>
-DB_PORT=<db_port>
-DB_NAME=<db_name>
-DB_USER=<db_username>
-DB_PWD=<db_password>
+DB_HOST=
+DB_PORT=
+DB_NAME=
+DB_USER=
+DB_PWD=
 
 # Analytics configuration. (Only to be filled by ShortLoop Org.)
 ANALYTICS_KEY=
@@ -70,12 +73,10 @@ ANALYTICS_KEY=
 # Error Monitoring (Only to be filled by getting value from ShortLoop Org.)
 #SENTRY_DSN=
 
-
 ##### Customisation ######
 
 # Port Customisation (default is 80). To Change; uncomment the below line.
 #SHORTLOOP_PORT=80
-
 ```
 
 **Step - 4 : Start ShortLoop.**
