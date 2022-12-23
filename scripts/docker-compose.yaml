@@ -13,8 +13,7 @@ services:
       - DB_USER=${DB_USER}
       - DB_PWD=${DB_PWD}
       - SENTRY_DSN=${SENTRY_DSN}
-      - LOG_DIR=/var/log/shortloop/control-tower
-      - LUCENE_PATH=/var/log/shortloop/lucene
+      - LOG_DIR=/var/log/shortloop
       - ANALYTICS_KEY=${ANALYTICS_KEY:?ANALYTICS_KEY is mandatory in environment. Ask Shortloop to provide this.}
       - ANALYTICS_HOST=https://app.posthog.com
       - ORG_NAME=${ORG_NAME?:ORG_NAME is mandatory field in environment. Please fill in the .env (or .env-local.db) file}
@@ -34,8 +33,7 @@ services:
       - DB_USER=shortloop
       - DB_PWD=shortloop
       - SENTRY_DSN=${SENTRY_DSN}
-      - LOG_DIR=/var/log/shortloop/control-tower
-      - LUCENE_PATH=/var/log/shortloop/lucene
+      - LOG_DIR=/var/log/shortloop
       - ANALYTICS_KEY=${ANALYTICS_KEY:?ANALYTICS_KEY is mandatory in environment. Ask Shortloop to provide this.}
       - ANALYTICS_HOST=https://app.posthog.com
       - ORG_NAME=${ORG_NAME?:ORG_NAME is mandatory field in environment. Please fill in the .env (or .env-local.db) file}
