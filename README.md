@@ -150,7 +150,7 @@ ___
 
 ```
     shortloop.enabled=true
-    shortloop.ctUrl=http://shortloop.company-name.com       # the deployed control-tower url here.
+    shortloop.url=http://shortloop.company-name.com       # the deployed control-tower url here.
     shortloop.applicationName=service-name      # application name here how you want discover on portal.
 ```
 
