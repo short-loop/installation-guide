@@ -21,6 +21,7 @@ and add the inbound for port `80` to be available from source `0.0.0.0/0` (Or yo
 
 ##### 3. Add the DNS for the ease of access for the public IP. (Optional)
 Suggested DNS name : `shortloop.company-name.com`
+It's recommended that shortloop is hosted on https, otherwise certain features (eg. copy to clipboard, SSO) might not work as expected.
 
 > NOTE : For the rest of the guide, we will assume that you have the DNS configured to access your instance. If not, just replace `shortloop.company-name.com` with the public IP of the instance. 
 
@@ -150,7 +151,7 @@ ___
 
 ```
     shortloop.enabled=true
-    shortloop.url=http://shortloop.company-name.com       # the deployed control-tower url here.
+    shortloop.url=https://shortloop.company-name.com       # the deployed control-tower url here.
     shortloop.applicationName=service-name      # application name here how you want discover on portal.
 ```
 
