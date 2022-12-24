@@ -1,1 +1,1 @@
-# Javascript application
+# Helm chart

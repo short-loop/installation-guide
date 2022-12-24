@@ -1,24 +1,9 @@
 version: '2'
 services:
-  shortloop-ui:
-    image: shortloop/portal:0.0.1
-    container_name: shortloop-portal
-    volumes:
-      - shortloop-logs-fe:/var/log/shortloop
-    environment:
-      - CT_URL=${CT_URL}
-      - REACT_APP_POSTHOG_API_KEY=${REACT_APP_POSTHOG_API_KEY}
-      - REACT_APP_POSTHOG_API_HOST=https://app.posthog.com
-      - LOG_DIR=/var/log/shortloop/fe
-      - NODE_ENV=prod
-      - SENTRY_DSN=${SENTRY_DSN}
-      - ORG_NAME=${ORG_NAME}
-    ports:
-      - ${UI_PORT:-80}:5000
   shortloop-control-tower-with-external-db:
     profiles: ["external-db"]
-    image: shortloop/control-tower:0.0.1
-    container_name: shortloop-control-tower
+    image: shortloop/control-tower:0.0.3
+    container_name: shortloop
     volumes:
       - shortloop-logs:/var/log/shortloop
     environment:
@@ -28,15 +13,17 @@ services:
       - DB_USER=${DB_USER}
       - DB_PWD=${DB_PWD}
       - SENTRY_DSN=${SENTRY_DSN}
-      - LOG_DIR=/var/log/shortloop/control-tower
-      - LUCENE_PATH=/var/log/shortloop/lucene
+      - LOG_DIR=/var/log/shortloop
+      - ANALYTICS_KEY=${ANALYTICS_KEY:?ANALYTICS_KEY is mandatory in environment. Ask Shortloop to provide this.}
+      - ANALYTICS_HOST=https://app.posthog.com
+      - ORG_NAME=${ORG_NAME?:ORG_NAME is mandatory field in environment. Please fill in the .env (or .env-local.db) file}
       - ENV=prod
     ports:
-      - ${CONTROL_TOWER_PORT:-8080}:8080
+      - ${SHORTLOOP_PORT:-80}:8080
   shortloop-control-tower-with-self-db:
     profiles: ["self-db"]
-    image: shortloop/control-tower:0.0.1
-    container_name: shortloop-control-tower
+    image: shortloop/control-tower:0.0.3
+    container_name: shortloop
     volumes:
       - shortloop-logs:/var/log/shortloop
     environment:
@@ -45,11 +32,14 @@ services:
       - DB_NAME=shortloop
       - DB_USER=shortloop
       - DB_PWD=shortloop
-      - LOG_DIR=/var/log/shortloop/control-tower
-      - LUCENE_PATH=/var/log/shortloop/lucene
+      - SENTRY_DSN=${SENTRY_DSN}
+      - LOG_DIR=/var/log/shortloop
+      - ANALYTICS_KEY=${ANALYTICS_KEY:?ANALYTICS_KEY is mandatory in environment. Ask Shortloop to provide this.}
+      - ANALYTICS_HOST=https://app.posthog.com
+      - ORG_NAME=${ORG_NAME?:ORG_NAME is mandatory field in environment. Please fill in the .env (or .env-local.db) file}
       - ENV=prod
     ports:
-      - ${CONTROL_TOWER_PORT:-8080}:8080
+      - ${SHORTLOOP_PORT:-80}:8080
     depends_on:
       - postgres
   postgres:
@@ -64,10 +54,12 @@ services:
       - 5432:5432
     volumes:
       - shortloop-postgres-volume:/var/lib/postgresql/data
-    shm_size: 256MB 
+    shm_size: 256MB
 
 volumes:
-    shortloop-postgres-volume:
-        external: false
-    shortloop-logs:
-        external: false
+  shortloop-logs-fe:
+    external: false
+  shortloop-postgres-volume:
+    external: false
+  shortloop-logs:
+    external: false

@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shortloop
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: shortloop
+    namespace: {{ .Release.Namespace }}
+    release: {{ .Release.Name }}
+    draft: {{ default "draft-app" .Values.draft }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shortloop
+      namespace: {{ .Release.Namespace }}
+  template:
+    metadata:
+      labels:
+        draft: {{ default "draft-app" .Values.draft }}
+        app: shortloop
+        namespace: {{ .Release.Namespace }}
+        rollover: {{ default "false" .Values.rollover | quote }}
+    spec:
+      volumes:
+        - name: log-dir
+          emptyDir:
+            sizeLimit: 1024Mi
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        volumeMounts:
+          - mountPath: {{ .Values.logDir }}
+            name: log-dir
+        lifecycle:                   
+          preStop:                   
+            exec:                    
+              command:               
+              - sh
+              - -c
+              - "sleep 60"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        terminationMessagePath: "/logs/app-name/termination.log"
+        terminationMessagePolicy: "FallbackToLogsOnError"
+        env:
+          - name: DB_HOST
+            value: {{ .Values.dbHost }}
+          - name: DB_PORT
+            value: {{ .Values.dbPort | quote }}
+          - name: DB_NAME
+            value: {{ .Values.dbName }}
+          - name: DB_USER
+            value: {{ .Values.dbUser }}
+          - name: DB_PWD
+            value: {{ .Values.dbPwd }}
+          - name: LOG_DIR
+            value: {{ .Values.logDir }}
+          - name: ENV
+            value: {{ .Values.env }}
+          - name: ANALYTICS_KEY
+            value: {{ .Values.analyticsKey }}
+          - name: ANALYTICS_HOST
+            value: {{ .Values.analyticsHost }}
+          - name: ORG_NAME
+            value: {{ .Values.orgName }}
+        ports:
+          - containerPort: 8080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 15
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+{{ toYaml .Values.resources | indent 10}}

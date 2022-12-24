@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.shortLoopUI.appName }}
+  name: shortloop
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.shortLoopUI.appName }}
+    app: shortloop
     namespace: {{ .Release.Namespace }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     release: {{ .Release.Name }}
@@ -13,10 +13,10 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: {{ .Values.shortLoopUI.exposePort }}
-      targetPort: {{ .Values.shortLoopUI.exposePort }}
+    - port: {{ .Values.exposePort }}
+      targetPort: 8080
       protocol: TCP
-      name: shortloop-ui-http-8080
+      name: shortloop-http
   selector:
     namespace: {{ .Release.Namespace }}
-    app: {{ .Values.shortLoopUI.appName }}
+    app: shortloop
