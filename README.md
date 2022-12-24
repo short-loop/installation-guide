@@ -151,9 +151,18 @@ ___
 
 ```
     shortloop.enabled=true
-    shortloop.url=https://shortloop.company-name.com       # the deployed control-tower url here.
-    shortloop.applicationName=service-name      # application name here how you want discover on portal.
+    shortloop.url=https://shortloop.company-name.com       # the deployed shortloop url here.
+    shortloop.applicationName=service-name                 # yout application name here
 ```
+
+If you use YAML format : 
+```bash
+shortloop:
+  enabled: 'true'
+  url: https://shortloop.company-name.com   # the deployed shortloop url here.
+  applicationName: service-name             # yout application name here.
+```
+
 
 **3. Add the following piece of code on top of you root level Application.java file**
 
