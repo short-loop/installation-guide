@@ -38,7 +38,7 @@ ___
 ___
 
 
-### Method-1 : Installing ShortLoop (With External DB)  [*Recommended*]
+### Method-1 : Installing ShortLoop via Docker Compose (With External DB)  [*Recommended*]
 
 **Step - 1 : Create a Postgres database (db_name = shortloop)**
 ```bash
@@ -87,7 +87,7 @@ sudo docker-compose --profile external-db up -d
 
 ___
 
-### Method-2 : Installing ShortLoop (Without DB)
+### Method-2 : Installing ShortLoop via Docker Compose (Without DB)
 > Warning : Although this is the easiest way to install and try out ShortLoop, but it relies on the mounted volume of the Host for the Persistent. (DB). So Data Durability is not guaranteed in this approach. 
 
 **Step - 1 : In the EC2 instance, download the `docker-compose.yaml` & `.env` files required for installation, using the command below**
@@ -115,12 +115,53 @@ ANALYTICS_KEY=
 
 ```
 
-**Step - 3 Start ShortLoop :**
+**Step - 4 Start ShortLoop :**
 ```bash
 sudo docker-compose --profile self-db --env-file .env-local-db up -d
 ```
 
 ___
+
+### Method-3 : Installing ShortLoop in K8s via Helm Chart (With External DB)
+
+**Step - 1 : Create a Postgres database (db_name = shortloop)**
+```bash
+CREATE DATABASE shortloop;
+CREATE USER shortloop_user WITH ENCRYPTED PASSWORD 'shortloop';
+GRANT ALL PRIVILEGES ON DATABASE shortloop to shortloop_user;
+```
+
+**Step - 2 : Add Helm Repository of ShortLoop (if not already added)**
+```bash
+helm repo add shortloop https://short-loop.github.io/helm-charts
+```
+
+**Step - 3 : Update Helm Repositories (Will be needed whenever trying to upgrade ShortLoop to new versions.)**
+```bash
+helm repo update
+```
+
+Verify if the locally synced repository contains the desired version of ShortLoop
+```bash
+helm repo list
+```
+**Step - 4 : Install & run  ShortLoop. (replace the variables below with actual values)**
+```bash
+helm install shortloop shortloop/shortloop \
+  --version=<shortloop_version> \
+  --set dbHost=<db_host> \
+  --set dbPort=<port> \
+  --set dbName=<db_name> \
+  --set dbUser=<db_user> \
+  --set dbPwd=<db_password> \
+  --set analyticsKey=<analytics_key> \
+  --set analyticsHost=<analytics_host> \
+  --set env=<env_name> \
+  --set orgName=<org_name>
+```
+
+___
+
 
 #### Accessing & Configuring the Shortloop Portal : 
 Once all the components are installed (from either of the above methods), ShortLoop Portal will be accessible here. 
