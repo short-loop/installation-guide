@@ -97,7 +97,7 @@ curl -L "https://raw.githubusercontent.com/short-loop/installation-guide/main/sc
 ```
 
 
-**Step - 3 : Update the downloaded `.env-local-db` file.**
+**Step - 2 : Update the downloaded `.env-local-db` file.**
 ```bash
 # Your Org/Company Name. Eg: google, facebook
 ORG_NAME=
@@ -115,7 +115,7 @@ ANALYTICS_KEY=
 
 ```
 
-**Step - 4 Start ShortLoop :**
+**Step - 3 Start ShortLoop :**
 ```bash
 sudo docker-compose --profile self-db --env-file .env-local-db up -d
 ```
