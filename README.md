@@ -147,14 +147,13 @@ helm repo list
 **Step - 4 : Install & run  ShortLoop. (replace the variables below with actual values)**
 ```bash
 helm install shortloop shortloop/shortloop \
-  --version="0.0.5" \
+  --version="0.0.7" \
   --set dbHost=<db_host> \
   --set dbPort=<port> \
   --set dbName=<db_name> \
   --set dbUser=<db_user> \
   --set dbPwd=<db_password> \
   --set analyticsKey=<analytics_key> \
-  --set analyticsHost=<analytics_host> \
   --set env=<env_name> \
   --set orgName=<org_name>
 ```
