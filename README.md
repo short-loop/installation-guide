@@ -28,11 +28,10 @@ It's recommended that shortloop is hosted on https, otherwise certain features (
 ___
 
 #### Components of ShortLoop : 
-* ShortLoop Control Tower
-* ShortLoop Web Portal
+* ShortLoop Application (Control Tower with FrontEnd Portal)
 * ShortLoop Database (postgres)
 
-*[All 3 components can be installed via docker-compose file, as shown below.]*
+*[All 2 components can be installed via docker-compose file, as shown below.]*
 
 
 ___
