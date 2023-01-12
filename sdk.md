@@ -1,6 +1,6 @@
 ---
 title: SDK Installation Instructions
-layout: template
+layout: default
 filename: sdk.md
 --- 
 

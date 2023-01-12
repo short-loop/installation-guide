@@ -240,6 +240,7 @@ mvn clean install
 After the changes, redeploy your Java Application.
 
 Detailed SDK installation instructions : [link](sdk.md)
+
 ___
 
 #### Coming Soon : 
