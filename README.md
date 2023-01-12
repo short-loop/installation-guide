@@ -191,7 +191,7 @@ ___
 ```
     shortloop.enabled=true
     shortloop.url=https://shortloop.company-name.com       # the deployed shortloop url here.
-    shortloop.applicationName=service-name                 # yout application name here
+    shortloop.applicationName=service-name                 # your application name here
 ```
 
 If you use YAML format : 
@@ -199,7 +199,7 @@ If you use YAML format :
 shortloop:
   enabled: 'true'
   url: https://shortloop.company-name.com   # the deployed shortloop url here.
-  applicationName: service-name             # yout application name here.
+  applicationName: service-name             # your application name here.
 ```
 
 
