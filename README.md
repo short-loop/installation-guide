@@ -205,12 +205,13 @@ shortloop:
 
 **3. Add the following piece of code on top of you root level Application.java file**
 
-```Java
-@Import(ShortloopAutoConfiguration.class)
-```
 
 ```Java
 import dev.shortloop.agent.ShortloopAutoConfiguration;
+```
+
+```Java
+@Import(ShortloopAutoConfiguration.class)
 ```
 
 *After adding the above, your Application.java file should look something like this :*
