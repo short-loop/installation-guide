@@ -1,3 +1,10 @@
+---
+title: SDK Installation Instructions
+layout: template
+filename: sdk.md
+--- 
+
+
 # ShortLoop SDK Installation Instructions
 
 ### Installing SDK in **Java Spring-Boot**  Web Application.
