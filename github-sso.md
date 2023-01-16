@@ -9,7 +9,7 @@ filename: github-sso.md
 
 ShortLoop can use GitHub identities to log into your deployed instance. Follow the steps to enable it.
 
-1. **Navigate to the [**Organizations section**](https://github.com/settings/organizations) of your profile and the settings of the organization under which you want to create an OAuth App.**
+1. **Navigate to the [Organizations section](https://github.com/settings/organizations) of your profile and the settings of the organization under which you want to create an OAuth App.**
     
    ![Github Organization section](/images/sso/1.png)
 
@@ -25,7 +25,7 @@ ShortLoop can use GitHub identities to log into your deployed instance. Follow t
    
    Homepage URL: IP or domain on which your ShortLoop instance is deployed. (ex: https://shortloop.acmeinc.org/)
 
-   Authorization callback URL: Append /login/oauth2/code/github to the Homepage URL (ex: https://app.appsmith.com/login/oauth2/code/github)
+   Authorization callback URL: Append /login/oauth2/code/github to the Homepage URL (ex: https://shortloop.acmeinc.org/login/oauth2/code/github)
 
    ![Github enter OAuth app details](/images/sso/4.png)
 
