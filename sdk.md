@@ -78,10 +78,45 @@ mvn clean install
 
 After the changes, redeploy your Java Application.
 
+### Installing SDK in **Go Gin**  Web Application.
+
+**1. `shortloop-go` can be installed like any other Go Package through `go get`:**
+
+```bash
+$ go get github.com/short-loop/shortloop-go@latest
+```
+
+**2. Add the following piece of code on top of you root level main.go file where you initialize your router**
+
+```Go
+import "github.com/short-loop/shortloop-go/shortloopgin"
+```
+
+**3. Initialize the shortloop sdk**
+To use shortloop-go sdk, you’ll need to initialize it with options - ShortloopEndpoint and ApplicationName as shown in below example.
+```Go
+router := gin.Default()
+shortloopSDK, err := shortloopgin.Init(shortloopgin.Options{
+    ShortloopEndpoint: "https://shortloop.company-name.com",
+    ApplicationName:   "service-name",
+})
+if err != nil {
+    fmt.Println("Error initializing shortloopSDK: ", err)
+} else {
+    router.Use(shortloopSDK.Filter())
+}
+```
+
+*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)
+```bash
+go build main.go
+```
+
+After the changes, redeploy your Go Application.
 ___
 
 #### Coming Soon : 
- - Go Lang SDK (Mux, Gin, etc.)
+ - Go Lang SDK Mux
  - Cluster wide installation using Envoy Proxy or eBPF Agent. 
  - AWS/GCP Traffic Mirroring
 
