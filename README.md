@@ -147,7 +147,7 @@ helm repo list
 **Step - 4 : Install & run  ShortLoop. (replace the variables below with actual values)**
 ```bash
 helm install shortloop shortloop/shortloop \
-  --version="0.0.7" \
+  --version="0.0.8" \
   --set dbHost=<db_host> \
   --set dbPort=<port> \
   --set dbName=<db_name> \
@@ -182,7 +182,7 @@ ___
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.7</version>
+        <version>0.0.8</version>
     </dependency>
 </dependencies>
 ```
