@@ -91,12 +91,16 @@ NOTE : ShortLoop slowly collects the API information from the network traffic, s
 
 ##### You can view the your API collections on the portal : 
 **https://shortloop.curefit.co**
+
 (Default Password : `admin`)
-[Available only within the company VPN]
+
+[Portal available only within the company VPN]
+
 ___
 
 #### Coming Soon : 
- - Go Lang SDK Mux
+ - Node SDK
+ - Go Lang SDK (Mux Framework)
  - Cluster wide installation using Envoy Proxy or eBPF Agent. 
  - AWS/GCP Traffic Mirroring
 
