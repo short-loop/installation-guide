@@ -182,7 +182,7 @@ ___
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.8</version>
+        <version>0.0.9</version>
     </dependency>
 </dependencies>
 ```
