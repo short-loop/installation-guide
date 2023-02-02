@@ -92,7 +92,7 @@ NOTE : ShortLoop slowly collects the API information from the network traffic, s
 ##### You can view the your API collections on the portal : 
 **https://shortloop.curefit.co**
 (Default Password : `admin`)
-
+[Available only within the company VPN]
 ___
 
 #### Coming Soon : 
