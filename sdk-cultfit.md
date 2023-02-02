@@ -1,7 +1,7 @@
 ---
 title: SDK Installation Instructions (Cultfit)
 layout: default
-filename: sdk.md
+filename: sdk-cultfit.md
 --- 
 
 
@@ -35,7 +35,7 @@ If you use YAML format :
 shortloop:
   enabled: 'true'
   url: https://shortloop.curefit.co
-  applicationName: service-name             # your application name here.
+  applicationName: service-name   # your application name here.
 ```
 
 
@@ -86,6 +86,13 @@ mvn clean install
 
 After the changes, redeploy your Java Application.
 
+
+NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base to show you the APIs list; after you install the SDK.
+
+##### You can view the your API collections on the portal : 
+**https://shortloop.curefit.co**
+(Default Password : `admin`)
+
 ___
 
 #### Coming Soon : 
@@ -97,6 +104,8 @@ ___
 
 #### Support: 
 > Feel free to email for a quick support, reporting bug or improvements suggestions.
-**Sumit B Mulchandani** (sumit@shortloop.dev)
+**Sumit B Mulchandani** (sumit@shortloop.dev) 
+
+Or Alternatively on the Slack Channel (Available inside Cultfit Slack) : `#shortloop-support`
 
 
