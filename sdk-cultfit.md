@@ -90,7 +90,7 @@ After the changes, redeploy your Java Application.
 NOTE : ShortLoop slowly collects the API information from the network traffic, so that the impact on your system is almost negligible. So might need 30-40 mins after installation to create it's knowledge base to show you the APIs list; after you install the SDK.
 
 ##### You can view the your API collections on the portal : 
-**https://shortloop.curefit.co**
+[https://shortloop.curefit.co](https://shortloop.curefit.co)
 
 (Default Password : `admin`)
 
