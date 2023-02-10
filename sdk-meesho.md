@@ -1,7 +1,7 @@
 ---
-title: SDK Installation Instructions (Cultfit)
+title: SDK Installation Instructions (Meesho)
 layout: default
-filename: sdk-cultfit.md
+filename: sdk-meesho.md
 --- 
 
 
