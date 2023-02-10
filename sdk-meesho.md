@@ -106,6 +106,6 @@ ___
 > Feel free to email for a quick support, reporting bug or improvements suggestions.
 **Sumit B Mulchandani** (sumit@shortloop.dev) 
 
-Or Alternatively on the Slack Channel (Available inside Cultfit Slack) : `#shortloop-support`
+
 
 
