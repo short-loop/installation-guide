@@ -3,20 +3,13 @@
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**
 
 ```bash
-npm install @shortloop/node@0.0.4
+npm install @shortloop/node@0.0.5
 ```
 
-**2. Once the package is installed, you can import the library using ES5 or ES6 syntax**
+**2. Once the package is installed, you can import the library following syntax**
 
 ```js
 const { ShortloopSDK } = require('@shortloop/node')
-```
-<p align="center">
-OR
-</p>
-
-```js
-import { ShortloopSDK } from '@shortloop/node'
 ```
 
 **3. Initialize the shortloop sdk**  
