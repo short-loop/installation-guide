@@ -8,13 +8,13 @@ $ go get github.com/short-loop/shortloop-go@v0.0.3
 
 **2. Add the following piece of code on top of you root level main.go file where you initialize your router**
 
-```Go
+```go
 import "github.com/short-loop/shortloop-go/shortloopmux"
 ```
 
 **3. Initialize the shortloop sdk**  
 To use shortloop-go sdk, you’ll need to initialize it with options - ShortloopEndpoint and ApplicationName as shown in below example.
-```Go
+```go
 router := mux.NewRouter()
 
 shortloopSdk, err := shortloopmux.Init(shortloopmux.Options{

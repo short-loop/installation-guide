@@ -8,23 +8,23 @@ $ go get github.com/short-loop/shortloop-go@v0.0.3
 
 **2. Add the following piece of code on top of you root level main.go file where you initialize your router**
 
-```Go
+```go
 import "github.com/short-loop/shortloop-go/shortloopgin"
 ```
 
 **3. Initialize the shortloop sdk**  
 To use shortloop-go sdk, you’ll need to initialize it with options - ShortloopEndpoint and ApplicationName as shown in below example.
-```Go
+```go
 router := gin.Default()
 
-shortloopSDK, err := shortloopgin.Init(shortloopgin.Options{
+shortloopSdk, err := shortloopgin.Init(shortloopgin.Options{
     ShortloopEndpoint: "https://shortloop.company-name.com", // the deployed shortloop url here.
     ApplicationName:   "service-name", // your application name here.
 })
 if err != nil {
-    fmt.Println("Error initializing shortloopSDK: ", err)
+    fmt.Println("Error initializing shortloopgin: ", err)
 } else {
-    router.Use(shortloopSDK.Filter())
+    router.Use(shortloopSdk.Filter())
 }
 ```
 
