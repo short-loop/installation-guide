@@ -10,7 +10,7 @@ npm install @shortloop/node@0.0.6
 
 For Vanilla JS projects
 ```js
-const { ShortloopSDK } = require('@shortloop/node')
+import { ShortloopSDK } from '@shortloop/node';
 ```
 
 For Typescript projects
@@ -32,6 +32,7 @@ app.use(ShortloopSDK.capture());
 ```
 
 *Quickly test if project is building after configuring SDK :  (Maybe custom to your project)
+
 ```bash
 npm build
 ```
