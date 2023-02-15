@@ -19,8 +19,9 @@ const app = express();
 app.use(express.json()); 
 app.use(express.text()); //...any other middlewares for body parsing
 ShortloopSDK.init({
-    url: 'https://shortloop.company-name.com', // the deployed shortloop url here.
+    url: 'https://shortloop.company-name.com', // ShortLoop URL. (Provided by ShortLoop team.)
     applicationName: 'service-name', // your application name here
+    authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
 });
 app.use(ShortloopSDK.capture());
 ```

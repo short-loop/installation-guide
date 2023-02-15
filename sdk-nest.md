@@ -24,6 +24,7 @@ configure(consumer: MiddlewareConsumer) {
 ShortloopSDK.init({
     url: 'https://shortloop.company-name.com', // the deployed shortloop url here.
     applicationName: 'service-name', // your application name here
+    authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
 });
 consumer.apply(ShortloopSDK.capture()).forRoutes('*');
 }
@@ -48,6 +49,7 @@ export class AppModule {
     ShortloopSDK.init({
         url: 'https://shortloop.company-name.com', // the deployed shortloop url here.
         applicationName: 'service-name', // your application name here
+        authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
     });
     consumer.apply(ShortloopSDK.capture()).forRoutes('*');
   }
