@@ -1,5 +1,8 @@
 ### Installing SDK in **Go Mux**  Web Application.
 
+**Requirements:**
+Go version - 1.17 or higher
+
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash

@@ -3,21 +3,16 @@
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**
 
 ```bash
-npm install @shortloop/node@0.0.5
+npm install @shortloop/node@0.0.6
 ```
 
-**2. Once the package is installed, you can import the library following syntax**
-
-```js
-import { ShortloopSDK } from '@shortloop/node'
-```
-
-**3. Add the following piece of code on top of you root level app.module.ts file**
+**2. Once the package is installed, add the following piece of code on top of you root level app.module.ts file**
 ```js
 import { MiddlewareConsumer } from '@nestjs/common';
 import { ShortloopSDK } from '@shortloop/node';
 ```
 
+**3. Initialize the shortloop sdk**  
 To use shortloop/node sdk, you’ll need to initialize it with options - url and applicationName and use it as middleware inside your AppModule Class 
 ```js
 configure(consumer: MiddlewareConsumer) {
