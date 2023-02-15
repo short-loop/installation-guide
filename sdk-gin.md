@@ -24,7 +24,7 @@ router := gin.Default()
 shortloopSdk, err := shortloopgin.Init(shortloopgin.Options{
     ShortloopEndpoint: "https://shortloop.company-name.com", // the deployed shortloop url here.
     ApplicationName:   "service-name", // your application name here.
-    AuthKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
+    AuthKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // ShortLoop Auth Key. (Provided by ShortLoop team.)
 })
 if err != nil {
     fmt.Println("Error initializing shortloopgin: ", err)
