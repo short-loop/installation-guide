@@ -1,8 +1,8 @@
 ### Installing SDK in **Go Gin**  Web Application.
 
 **Requirements:**
-Go version - 1.17 or higher
-Gin version supported - 1.4.0 or higher
+Go version - 1.17 or higher  
+Gin version supported - 1.4.0 or higher  
 
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
