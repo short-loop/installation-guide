@@ -16,13 +16,13 @@ import { ShortloopSDK } from '@shortloop/node';
 To use shortloop/node sdk, you’ll need to initialize it with options - url and applicationName and use it as middleware inside your AppModule Class 
 ```js
 configure(consumer: MiddlewareConsumer) {
-ShortloopSDK.init({
-  url: "https://shortloop.company-name.com", // ShortLoop URL. (Provided by ShortLoop team.)
-  applicationName: "service-name", // your application name here
-  authKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
-  environment: "your-environment", // for e.g stage or prod
-});
-consumer.apply(ShortloopSDK.capture()).forRoutes('*');
+  ShortloopSDK.init({
+    url: 'https://shortloop.company-name.com', // ShortLoop URL. (Provided by ShortLoop team.)
+    applicationName: 'service-name', // your application name here
+    authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', // ShortLoop Auth Key. (Provided by ShortLoop team.)
+    environment: 'your-environment', // for e.g stage or prod
+  });
+  consumer.apply(ShortloopSDK.capture()).forRoutes('*');
 }
 ```
 *After adding the above, your app.module.ts file should look something like this :*
@@ -43,10 +43,10 @@ import { ShortloopSDK } from '@shortloop/node';
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     ShortloopSDK.init({
-      url: "https://shortloop.company-name.com", // ShortLoop URL. (Provided by ShortLoop team.)
-      applicationName: "service-name", // your application name here
-      authKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
-      environment: "your-environment", // for e.g stage or prod
+      url: 'https://shortloop.company-name.com', // ShortLoop URL. (Provided by ShortLoop team.)
+      applicationName: 'service-name', // your application name here
+      authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', // ShortLoop Auth Key. (Provided by ShortLoop team.)
+      environment: 'your-environment', // for e.g stage or prod
     });
     consumer.apply(ShortloopSDK.capture()).forRoutes('*');
   }
