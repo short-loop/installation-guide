@@ -21,7 +21,7 @@ To use shortloop-go sdk, you’ll need to initialize it with options - Shortloop
 router := mux.NewRouter()
 
 shortloopSdk, err := shortloopmux.Init(shortloopmux.Options{
-    ShortloopEndpoint: "https://shortloop.company-name.com",   // the deployed shortloop url here.
+    ShortloopEndpoint: "https://shortloop.company-name.com",   // the shortloop url for your org. (Provided by ShortLoop team.)
     ApplicationName:   "service-name",                         // your application name here.
     AuthKey:           "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
     Environment:       "your-environment",                     // for e.g stage or prod
