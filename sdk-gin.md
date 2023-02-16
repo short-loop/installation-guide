@@ -7,7 +7,7 @@ Gin version supported - 1.4.0 or higher
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash
-$ go get github.com/short-loop/shortloop-go@v0.0.3
+$ go get github.com/short-loop/shortloop-go@v0.0.4
 ```
 
 **2. Add the following piece of code on top of you root level main.go file where you initialize your router**
@@ -22,9 +22,10 @@ To use shortloop-go sdk, you’ll need to initialize it with options - Shortloop
 router := gin.Default()
 
 shortloopSdk, err := shortloopgin.Init(shortloopgin.Options{
-    ShortloopEndpoint: "https://shortloop.company-name.com", // the deployed shortloop url here.
-    ApplicationName:   "service-name", // your application name here.
-    AuthKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" // ShortLoop Auth Key. (Provided by ShortLoop team.)
+    ShortloopEndpoint: "https://shortloop.company-name.com",   // the deployed shortloop url here.
+    ApplicationName:   "service-name",                         // your application name here.
+    AuthKey:           "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
+    Environment:       "your-environment",                     // for e.g stage or prod
 })
 if err != nil {
     fmt.Println("Error initializing shortloopgin: ", err)

@@ -3,7 +3,7 @@
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**
 
 ```bash
-npm install @shortloop/node@0.0.6
+npm install @shortloop/node@0.0.7
 ```
 
 **2. Once the package is installed, you can import the library following syntax**
@@ -25,9 +25,10 @@ const app = express();
 app.use(express.json()); 
 app.use(express.text()); //...any other middlewares for body parsing
 ShortloopSDK.init({
-    url: 'https://shortloop.company-name.com', // ShortLoop URL. (Provided by ShortLoop team.)
-    applicationName: 'service-name', // your application name here
-    authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
+  url: "https://shortloop.company-name.com", // ShortLoop URL. (Provided by ShortLoop team.)
+  applicationName: "service-name", // your application name here
+  authKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
+  environment: "your-environment", // for e.g stage or prod
 });
 app.use(ShortloopSDK.capture());
 ```

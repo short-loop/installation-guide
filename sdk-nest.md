@@ -3,7 +3,7 @@
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**
 
 ```bash
-npm install @shortloop/node@0.0.6
+npm install @shortloop/node@0.0.7
 ```
 
 **2. Once the package is installed, add the following piece of code on top of you root level app.module.ts file**
@@ -17,9 +17,10 @@ To use shortloop/node sdk, you’ll need to initialize it with options - url and
 ```js
 configure(consumer: MiddlewareConsumer) {
 ShortloopSDK.init({
-    url: 'https://shortloop.company-name.com', // the deployed shortloop url here.
-    applicationName: 'service-name', // your application name here
-    authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
+  url: "https://shortloop.company-name.com", // ShortLoop URL. (Provided by ShortLoop team.)
+  applicationName: "service-name", // your application name here
+  authKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
+  environment: "your-environment", // for e.g stage or prod
 });
 consumer.apply(ShortloopSDK.capture()).forRoutes('*');
 }
@@ -42,9 +43,10 @@ import { ShortloopSDK } from '@shortloop/node';
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     ShortloopSDK.init({
-        url: 'https://shortloop.company-name.com', // the deployed shortloop url here.
-        applicationName: 'service-name', // your application name here
-        authKey: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // ShortLoop Auth Key. (Provided by ShortLoop team.)
+      url: "https://shortloop.company-name.com", // ShortLoop URL. (Provided by ShortLoop team.)
+      applicationName: "service-name", // your application name here
+      authKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", // ShortLoop Auth Key. (Provided by ShortLoop team.)
+      environment: "your-environment", // for e.g stage or prod
     });
     consumer.apply(ShortloopSDK.capture()).forRoutes('*');
   }
