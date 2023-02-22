@@ -18,7 +18,7 @@ filename: sdk.md
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11</version>
     </dependency>
 </dependencies>
 ```
