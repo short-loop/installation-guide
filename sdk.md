@@ -76,19 +76,14 @@ public class Application {
 
 ```
 
-*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)
+*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)*
+
 ```bash
 mvn clean install
 ```
 
 After the changes, redeploy your Java Application.
 
-___
-
-#### Coming Soon : 
- - Go Lang SDK Mux
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
 
 ---
 

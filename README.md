@@ -248,11 +248,6 @@ Detailed SDK installation instructions : [link](sdk.md)
 
 ___
 
-#### Coming Soon : 
- - Go Lang SDK (Mux, Gin, etc.)
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
----
 
 #### Support: 
 > Feel free to email for a quick support, reporting bug or improvements suggestions.

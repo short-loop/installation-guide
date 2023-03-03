@@ -94,13 +94,6 @@ NOTE : ShortLoop slowly collects the API information from the network traffic, s
 
 ___
 
-#### Coming Soon : 
- - Node SDK
- - Go Lang SDK (Mux Framework)
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
-
----
 
 #### Support: 
 > Feel free to email for a quick support, reporting bug or improvements suggestions.
