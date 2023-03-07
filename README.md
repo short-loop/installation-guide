@@ -182,7 +182,7 @@ ___
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11</version>
     </dependency>
 </dependencies>
 ```
@@ -190,16 +190,20 @@ ___
 
 ```
     shortloop.enabled=true
-    shortloop.url=https://shortloop.company-name.com       # the deployed shortloop url here.
-    shortloop.applicationName=service-name                 # your application name here (No Spaces before & after)
+    shortloop.applicationName=service-name                 # your application name here
+    shortloop.environment=env-name                         # your application environment (Eg. stage, prod, alpha, etc.)
+    shortloop.url=https://shortloop.company-name.com       # the shortloop url for your org. (Provided by ShortLoop team.)
+    shortloop.authKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # shortloop Auth Key. (Provided by ShortLoop team.)
 ```
 
 If you use YAML format : 
 ```bash
 shortloop:
   enabled: 'true'
-  url: https://shortloop.company-name.com   # the deployed shortloop url here.
   applicationName: service-name             # your application name here.
+  environment: env-name                     # your application environment (Eg. stage, prod, alpha, etc.)
+  url: https://shortloop.company-name.com   # the shortloop url for your org. (Provided by ShortLoop team.)
+  authKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  # shortloop Auth Key. (Provided by ShortLoop team.)
 ```
 
 
@@ -244,11 +248,6 @@ Detailed SDK installation instructions : [link](sdk.md)
 
 ___
 
-#### Coming Soon : 
- - Go Lang SDK (Mux, Gin, etc.)
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
----
 
 #### Support: 
 > Feel free to email for a quick support, reporting bug or improvements suggestions.

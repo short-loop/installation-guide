@@ -18,7 +18,7 @@ filename: sdk-cultfit.md
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11</version>
     </dependency>
 </dependencies>
 ```
@@ -98,13 +98,6 @@ NOTE : ShortLoop slowly collects the API information from the network traffic, s
 
 ___
 
-#### Coming Soon : 
- - Node SDK
- - Go Lang SDK (Mux Framework)
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
-
----
 
 #### Support: 
 > Feel free to email for a quick support, reporting bug or improvements suggestions.

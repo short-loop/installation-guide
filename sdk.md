@@ -18,7 +18,7 @@ filename: sdk.md
     <dependency>
         <groupId>dev.shortloop.agent</groupId>
         <artifactId>agent-java</artifactId>
-        <version>0.0.10</version>
+        <version>0.0.11</version>
     </dependency>
 </dependencies>
 ```
@@ -26,16 +26,21 @@ filename: sdk.md
 
 ```
     shortloop.enabled=true
-    shortloop.url=https://shortloop.company-name.com       # the deployed shortloop url here.
     shortloop.applicationName=service-name                 # your application name here
+    shortloop.environment=env-name                         # your application environment (Eg. stage, prod, alpha, etc.)
+    shortloop.url=https://shortloop.company-name.com       # the shortloop url for your org. (Provided by ShortLoop team.)
+    shortloop.authKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # shortloop Auth Key. (Provided by ShortLoop team.)
 ```
 
 If you use YAML format : 
 ```bash
 shortloop:
   enabled: 'true'
-  url: https://shortloop.company-name.com   # the deployed shortloop url here.
   applicationName: service-name             # your application name here.
+  environment: env-name                     # your application environment (Eg. stage, prod, alpha, etc.)
+  url: https://shortloop.company-name.com   # the shortloop url for your org. (Provided by ShortLoop team.)
+  authKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  # shortloop Auth Key. (Provided by ShortLoop team.)
+
 ```
 
 
@@ -71,19 +76,14 @@ public class Application {
 
 ```
 
-*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)
+*Quickly test if project is building after configuring SDK :  (Maybe custom to your project)*
+
 ```bash
 mvn clean install
 ```
 
 After the changes, redeploy your Java Application.
 
-___
-
-#### Coming Soon : 
- - Go Lang SDK Mux
- - Cluster wide installation using Envoy Proxy or eBPF Agent. 
- - AWS/GCP Traffic Mirroring
 
 ---
 
