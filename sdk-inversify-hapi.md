@@ -1,7 +1,6 @@
 ### Installing SDK in **Node**  Web Application using Hapi framework and InversifyJS.
 
-**1. `@shortloop/node` can be installed like any other npm package through `npm`:**
-TODO: Update to latest release version
+**1. `@shortloop/node` can be installed like any other npm package through `npm`:**  
 ```bash
 npm install @shortloop/node@0.0.7
 ```
