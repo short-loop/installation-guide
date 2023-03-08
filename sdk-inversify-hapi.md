@@ -40,16 +40,11 @@ export default (): HapiPlugin => {
                 }
             ]);
         },
-        info: () => {
-            return {
-                name: "Shortloop SDK",
-                version: "0.0.1"
-            };
-        }
+        info: ShortloopPlugin.info,
     };
 };
 ```
-**4. Now just make sure you are registering the plugin in your project in your index.ts file**
+**4. Now just make sure you are registering the plugin in your project in your index.ts file**  
 Your project will have some code similar to the below snippet which registers all plugins for the server object
 ```js
 ...
