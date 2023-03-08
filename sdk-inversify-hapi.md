@@ -2,7 +2,7 @@
 
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**  
 ```bash
-npm install @shortloop/node@0.0.7
+npm install @shortloop/node@0.0.8-beta
 ```
 
 **2. Once the package is installed, you can import the library following syntax**
