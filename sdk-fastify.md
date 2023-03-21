@@ -1,6 +1,6 @@
 ### Installing SDK in **Node**  Web Application using Fastify framework.
 
-**1. `@shortloop/node` can be installed like any other npm package through `npm`:**    
+**1. `@shortloop/fastify` can be installed like any other npm package through `npm`:**    
 ```bash
 npm install @shortloop/fastify@0.0.1
 ```
