@@ -1,21 +1,20 @@
 ### Installing SDK in **Node**  Web Application using Fastify framework.
 
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**    
-TODO: update the version
 ```bash
-npm install @shortloop/node@0.0.8-beta
+npm install @shortloop/fastify@0.0.1
 ```
 
 **2. Once the package is installed, you can import the library following syntax**
 
 For Vanilla JS projects
 ```js
-const { fastifyShortloopPlugin } = require("@shortloop/node");
+const { fastifyShortloopPlugin } = require("@shortloop/fastify");
 ```
 
 For Typescript projects
 ```js
-import { fastifyShortloopPlugin } from '@shortloop/node';
+import { fastifyShortloopPlugin } from '@shortloop/fastify';
 ```
 
 **3. Initialize the shortloop sdk plugin**  
