@@ -1,7 +1,11 @@
 ### Installing SDK in **Go Mux**  Web Application.
 
-**Requirements:**
+**Requirements:**  
 Go version - 1.17 or higher
+
+**Dependencies**  
+We only have one direct dependency in our SDK for Mux.
+[golang.org/x/sync](https://pkg.go.dev/golang.org/x/sync) v0.1.0 - This is a very lightweight standard library in Go for concurrency.  
 
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 

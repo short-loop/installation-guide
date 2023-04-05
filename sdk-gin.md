@@ -4,6 +4,11 @@
 Go version - 1.17 or higher  
 Gin version supported - 1.4.0 or higher  
 
+**Dependencies**  
+We only have two direct dependencies in our SDK for Gin.  
+1. [github.com/gin-gonic/gin](https://pkg.go.dev/github.com/gin-gonic/gin) v1.4.0 or higher - You can have any verison of gin higher than v1.4.0 in your project  
+2. [golang.org/x/sync](https://pkg.go.dev/golang.org/x/sync) v0.1.0 - This is a very lightweight standard library in Go for concurrency.  
+
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash
