@@ -3,6 +3,9 @@
 **Requirements:**  
 Go version - 1.17 or higher  
 
+**External Dependency:**
+* [sync](https://pkg.go.dev/golang.org/x/sync) (Standard Go library for handling concurrency)  
+
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash
