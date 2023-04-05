@@ -41,6 +41,6 @@ go build main.go
 
 After the changes, redeploy your Go Application.
 
-**Note:**
-ShortLoop SDK has following external dependency:
+**Note:**  
+ShortLoop SDK has following external dependency:  
 * [sync](https://pkg.go.dev/golang.org/x/sync) (Standard Go library for handling concurrency)  
