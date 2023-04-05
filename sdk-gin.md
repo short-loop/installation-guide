@@ -4,9 +4,6 @@
 Go version - 1.17 or higher  
 Gin version supported - 1.4.0 or higher  
 
-**External Dependency:**
-* [sync](https://pkg.go.dev/golang.org/x/sync) (Standard Go library for handling concurrency)  
-
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash
@@ -43,3 +40,7 @@ go build main.go
 ```
 
 After the changes, redeploy your Go Application.
+
+**Note:**
+ShortLoop SDK has following external dependency:
+* [sync](https://pkg.go.dev/golang.org/x/sync) (Standard Go library for handling concurrency)  
