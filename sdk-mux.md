@@ -6,7 +6,7 @@ Go version - 1.17 or higher
 **1. `shortloop-go` can be installed like any other Go Package through `go get`:**
 
 ```bash
-$ go get github.com/short-loop/shortloop-go@v0.0.5
+$ go get github.com/short-loop/shortloop-go@v0.0.6
 ```
 
 **2. Add the following piece of code on top of you root level main.go file where you initialize your router**
