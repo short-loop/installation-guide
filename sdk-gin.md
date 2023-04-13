@@ -1,3 +1,8 @@
+---
+redirect_to: "https://docs.shortloop.dev/go/gin"
+canonical_url: "https://docs.shortloop.dev/go/gin"
+---
+
 ### Installing SDK in **Go Gin**  Web Application.
 
 **Requirements:**  

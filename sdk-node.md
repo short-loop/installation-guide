@@ -1,3 +1,8 @@
+---
+redirect_to: "https://docs.shortloop.dev/nodejs/express"
+canonical_url: "https://docs.shortloop.dev/nodejs/express"
+---
+
 ### Installing SDK in **Node js**  Web Application.
 
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**

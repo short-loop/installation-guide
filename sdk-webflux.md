@@ -2,6 +2,8 @@
 title: SDK Installation Instructions
 layout: default
 filename: sdk-webflux.md
+redirect_to: "https://docs.shortloop.dev/java/spring-webflux"
+canonical_url: "https://docs.shortloop.dev/java/spring-webflux"
 --- 
 
 

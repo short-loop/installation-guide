@@ -2,6 +2,8 @@
 title: SDK Installation Instructions
 layout: default
 filename: sdk.md
+redirect_to: "https://docs.shortloop.dev/java/spring"
+canonical_url: "https://docs.shortloop.dev/java/spring"
 --- 
 
 

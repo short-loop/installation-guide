@@ -1,3 +1,8 @@
+---
+redirect_to: "https://docs.shortloop.dev/nodejs/hapi"
+canonical_url: "https://docs.shortloop.dev/nodejs/hapi"
+---
+
 ### Installing SDK in **Node**  Web Application using Hapi framework.
 
 **1. `@shortloop/node` can be installed like any other npm package through `npm`:**  

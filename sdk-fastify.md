@@ -1,3 +1,8 @@
+---
+redirect_to: "https://docs.shortloop.dev/nodejs/fastify"
+canonical_url: "https://docs.shortloop.dev/nodejs/fastify"
+---
+
 ### Installing SDK in **Node**  Web Application using Fastify framework.
 
 **1. `@shortloop/fastify` can be installed like any other npm package through `npm`:**    

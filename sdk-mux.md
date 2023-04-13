@@ -1,3 +1,8 @@
+---
+redirect_to: "https://docs.shortloop.dev/go/mux"
+canonical_url: "https://docs.shortloop.dev/go/mux"
+---
+
 ### Installing SDK in **Go Mux**  Web Application.
 
 **Requirements:**  
