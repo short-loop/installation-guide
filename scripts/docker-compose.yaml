@@ -7,6 +7,7 @@ services:
     volumes:
       - shortloop-logs:/var/log/shortloop
     environment:
+      - CLOUD_HOSTED=true
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_NAME=${DB_NAME}
@@ -27,6 +28,7 @@ services:
     volumes:
       - shortloop-logs:/var/log/shortloop
     environment:
+      - CLOUD_HOSTED=true
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=shortloop
